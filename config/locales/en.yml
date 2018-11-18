@@ -18,6 +18,29 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  app_title: I Can Cook
+  app_Description: Share your recipes
+  pages:
+    contact:
+      about_title: About this site
+      about_us: This site is for everyone who would like to share recipes
+      faq_title: Frequently Asked Questions
+  posts:
+    index:
+      title: This page will list all the user's posts
+    new:
+      new_post_title: Add a new recipe
+      title: add a title to your recipe
+      time: time taken?
+      ingrediants: add the list of ingrediants
+      recipe: add your recipe, as a list or a paragraph
+      submit: Add Recipe
+    add_post:
+      not_submitted: Check all fields
+      post_posted: Uploaded recipe successfully
+  shared:
+    header:
+      signin: Sign in
+      signout: Sign out
+      register: Register
