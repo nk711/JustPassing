@@ -19,8 +19,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
-  app_title: I Can Cook
-  app_Description: Share your recipes
+  app_title: PassBy
+  app_Description: Sell sell sell
   pages:
     contact:
       about_title: About this site
