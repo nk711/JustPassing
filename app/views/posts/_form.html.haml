@@ -1,0 +1,12 @@
+= simple_form_for @post do |f|
+	= f.input :title, hint: 'title'
+	= f.text_area :description 
+	= f.input :city, label: "City"
+	= f.input :address_one, label: "address 1"
+	= f.input :address_two, label: "address 2"
+	= f.input :address_three, label: "address 3"
+	= f.input :postal_code, label: "postal code"
+	
+	= f.button :submit
+
+end
