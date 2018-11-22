@@ -1,12 +1,13 @@
 = simple_form_for @post do |f|
-	= f.input :title, hint: 'title'
-	= f.text_area :description 
-	= f.input :city, label: "City"
-	= f.input :address_one, label: "address 1"
-	= f.input :address_two, label: "address 2"
-	= f.input :address_three, label: "address 3"
-	= f.input :postal_code, label: "postal code"
-	
-	= f.button :submit
-
+	= f.input :title
+	= f.input :description, label: 'Type a description'
+	= f.input :category, collection: ['Home', 'Pets', 'Property', 'Job', 'Motors', 'Clothing', 'Electronics & Computers', 'Other'], default: 'Other'
+	= f.input :price
+	= f.input :phone_number, label: 'Phone number'
+	= f.input :city, label: 'City'
+	= f.input :address_one, label: 'Address line 1'
+	= f.input :address_two, label: 'Address line 2'
+	= f.input :address_three, label: 'Address line 3'
+	= f.input :postal_code, label: 'Postal code'
+	= f.button :submit, label: 'Publish Post'
 end

@@ -1,1 +1,18 @@
-%h1 Post index view
+%nav.navbar
+	.container
+		.navbar-header
+			%form.form-inline.md-form.my-0
+				%input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
+
+
+%h1 List of Posts
+
+- @posts.each do |post|
+	%h3= link_to post.title, post_path(post)
+	%p= post.description
+
+
+
+
+= link_to 'Add a post', new_post_path
+
