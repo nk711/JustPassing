@@ -34,7 +34,11 @@
 
 
       = render 'shared/header'
+      /alerts the user of a message from devise 
+      %p.notice= notice
+      %p.alert= alert
 
+      / yield tag covers all view pages
       = yield
 
       = render 'shared/footer'
