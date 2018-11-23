@@ -11,21 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181123184153) do
+ActiveRecord::Schema.define(version: 20181123185519) do
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",                           null: false
-    t.text     "description",                     null: false
-    t.string   "category",      default: "Other", null: false
-    t.string   "price",                           null: false
-    t.string   "address_one",                     null: false
+    t.string   "title",                      null: false
+    t.text     "description",                null: false
+    t.string   "price",                      null: false
+    t.string   "address_one",                null: false
     t.string   "address_two"
     t.string   "address_three"
-    t.string   "city",                            null: false
-    t.string   "postal_code",                     null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "phone_number",  default: "",      null: false
+    t.string   "city",                       null: false
+    t.string   "postal_code",                null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "phone_number",  default: "", null: false
     t.integer  "user_id"
   end
 
