@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include Clearance::User
-  attr_accesible :Firstname
-  attr_accesible :lastname
-  attr_accesible :number
+  attr_accessor :Firstname
+  attr_accessor :Lastname
+  attr_accessor :number
 end

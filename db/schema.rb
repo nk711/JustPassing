@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181122172007) do
+ActiveRecord::Schema.define(version: 20181122235627) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",                           null: false
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20181122172007) do
     t.string   "remember_token",     limit: 128,              null: false
     t.string   "Firstname",                      default: "", null: false
     t.string   "lastname",                       default: "", null: false
-    t.string   "number",                         default: "", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

@@ -1,3 +1,4 @@
 Clearance.configure do |config|
-  config.mailer_sender = "reply@example.com"
+  config.routes = true
+  config.mailer_sender = "PassingBy@mail.co.uk"
 end
