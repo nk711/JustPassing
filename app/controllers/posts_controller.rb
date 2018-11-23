@@ -11,14 +11,17 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@list = Category.all.map{ |c| [c.name, c.id]}
 
 	end
 
 	def destroy
 		@post.destroy
-		redirect_
+		redirect_to root_path
 	end
+
 	def update
+		@post.category_id = params[:category_id]
 		if @book.update(post_params) 
 			redirect_to post_path(@post)
 		else
@@ -30,12 +33,15 @@ class PostsController < ApplicationController
 		#Defines an instance of a model which can be used in our view
 		#@post = Post.new
 		@post = current_user.posts.build
+
+		@list = Category.all.map{ |c| [c.name, c.id]}
 	end
 
 	def create
 
 		#@post = Post.new(post_params)
 		@post =current_user.posts.build(post_params)
+		@post.category_id = params[:category_id]
 
 		if @post.save
 			#If the post saved succesfully then redirect to root path (index)
@@ -53,14 +59,14 @@ class PostsController < ApplicationController
 				params.require(:post).permit(
 					:title,
 					:description,
-					:category,
 					:price,
 					:phone_number,
 					:city,
 					:address_one,
 					:address_two,
 					:address_three,
-					:postal_code)
+					:postal_code,
+					:category_id)
 		end
 
 		def find_post

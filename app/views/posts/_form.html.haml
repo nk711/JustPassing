@@ -1,7 +1,8 @@
 = simple_form_for @post do |f|
 	= f.input :title
 	= f.input :description, label: 'Type a description'
-	= f.input :category, collection: ['Home', 'Pets', 'Property', 'Job', 'Motors', 'Clothing', 'Electronics & Computers', 'Other'], default: 'Other'
+	-#= f.input :category, collection: ['Home', 'Pets', 'Property', 'Job', 'Motors', 'Clothing', 'Electronics & Computers', 'Other'], default: 'Other'
+	= select_tag(:category_id, options_for_select(@list), :prompt => 'Select a Categories') 
 	= f.input :price
 	= f.input :phone_number, label: 'Phone number'
 	= f.input :city, label: 'City'
