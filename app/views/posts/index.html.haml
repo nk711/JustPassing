@@ -1,6 +1,10 @@
 
-%input.form-control.mr-sm-2{"aria-label" => "Search", :placeholder => "Search", :type => "text"}/
+= render 'filter'
 
+%h1.category= params[:category]
+
+- if @posts.count == 0
+	%p No posts available
 
 %h1 List of Posts
 

@@ -3,7 +3,12 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@posts = Post.all.order("Created_at DESC")
+		if params[:category].blank?
+			@posts = Post.all.order("Created_at DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@posts = Post.where(:category_id => @category_id).order("Created_at DESC")
+		end
 	end
 
 	def show

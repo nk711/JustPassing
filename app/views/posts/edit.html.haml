@@ -1,3 +1,15 @@
 %h1 edit book
 
-=render form
+= simple_form_for @post, :html => { :multipart => true } do |f|
+	= f.input :title
+	= f.input :description, label: 'Type a description'
+	= f.select :category_id, @list
+	= f.input :price
+	= f.input :phone_number, label: 'Phone number'
+	= f.input :city, label: 'City'
+	= f.input :address_one, label: 'Address line 1'
+	= f.input :address_two, label: 'Address line 2'
+	= f.input :address_three, label: 'Address line 3'
+	= f.input :postal_code, label: 'Postal code'
+	= f.button :submit, label: 'Publish Post'
+end
