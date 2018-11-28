@@ -25,7 +25,7 @@ gem 'modernizr-rails'
 
 gem 'simple_form'
 
-
+gem 'paperclip', '~> 6.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

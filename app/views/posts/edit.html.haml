@@ -1,15 +1,18 @@
-%h1 edit book
+%div.container
+	%h3= t('.title')
+	= simple_form_for @post, :html => { :multipart => true } do |f|
+		= f.input :title,label: false, placeholder: t('posts.form.title')
+		= f.input :description,label: false, placeholder: t('posts.form.description')
+		= f.select :category_id, @list, class: "form-control"
+		= f.input :price,label: false, placeholder: t('posts.form.price')
 
-= simple_form_for @post, :html => { :multipart => true } do |f|
-	= f.input :title
-	= f.input :description, label: 'Type a description'
-	= f.select :category_id, @list
-	= f.input :price
-	= f.input :phone_number, label: 'Phone number'
-	= f.input :city, label: 'City'
-	= f.input :address_one, label: 'Address line 1'
-	= f.input :address_two, label: 'Address line 2'
-	= f.input :address_three, label: 'Address line 3'
-	= f.input :postal_code, label: 'Postal code'
-	= f.button :submit, label: 'Publish Post'
-end
+		%h4= t('posts.form.contact')
+		
+		= f.input :phone_number,label: false, placeholder: t('posts.form.number')
+		= f.input :city,label: false, placeholder: t('posts.form.city')
+		= f.input :address_one,label: false, placeholder: t('posts.form.address_one')
+		= f.input :address_two,label: false, placeholder: t('posts.form.address_two')
+		= f.input :address_three,label: false, placeholder: t('posts.form.address_three')
+		= f.input :postal_code,label: false, placeholder: t('posts.form.postal_code')
+		= f.button :submit, label: t('.edited')
+

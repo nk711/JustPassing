@@ -4,7 +4,7 @@
 %h1.category= params[:category]
 
 - if @posts.count == 0
-	%p No posts available
+	%p= t('.no_post')
 
 %h1 List of Posts
 
@@ -15,5 +15,5 @@
 
 
 
-= link_to 'Add a post', new_post_path
+= link_to t('.add_post'), new_post_path
 

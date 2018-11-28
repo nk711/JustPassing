@@ -1,13 +1,15 @@
 class PostsController < ApplicationController
-	#
+	#runs the find_post method before the selected methods
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
+
+
 
 	def index
 		if params[:category].blank?
-			@posts = Post.all.order("Created_at DESC")
+			@posts = Post.all.descending
 		else
 			@category_id = Category.find_by(name: params[:category]).id
-			@posts = Post.where(:category_id => @category_id).order("Created_at DESC")
+			@posts = Post.where(:category_id => @category_id).descending
 		end
 	end
 
@@ -21,8 +23,13 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		@post.destroy
-		redirect_to root_path
+		if @post.destroy
+			flash[:notice] = t('.success')
+			redirect_to root_path
+		else 
+			flash[:notice] = t('.fail')
+			render :show
+		end
 	end
 
 	def update
@@ -30,7 +37,7 @@ class PostsController < ApplicationController
 		if @book.update(post_params) 
 			redirect_to post_path(@post)
 		else
-			render 'edit'
+			render :edit
 		end
 	end
 
@@ -38,7 +45,7 @@ class PostsController < ApplicationController
 		#Defines an instance of a model which can be used in our view
 		#@post = Post.new
 		@post = current_user.posts.build
-
+		#Gets all the catogories
 		@list = Category.all.map{ |c| [c.name, c.id]}
 	end
 
@@ -53,7 +60,7 @@ class PostsController < ApplicationController
 			redirect_to root_path
 		else
 			#else redirect to /posts/new route
-			render 'new'
+			render :new
 		end
 	end
 

@@ -21,26 +21,49 @@
 en:
   app_title: PassBy
   app_Description: Sell sell sell
+  back: go back
   pages:
     contact:
       about_title: About this site
       about_us: This site is for everyone who would like to share recipes
       faq_title: Frequently Asked Questions
   posts:
+    filter:
+      search: I'm looking for...
     index:
       title: This page will list all the user's posts
+      add_post: Publish Post
+      no_post: Currently no Posts according to match
+    form:
+      title: Add a Title to your post
+      description: Add a description
+      category: Select a Category
+      price: Add your price
+      number: Add your phone number
+      city: Enter City
+      address_one: Enter Address line one
+      address_two: Enter Address line two
+      address_three: Enter Address line three
+      postal_code: Enter Postal code
+      submit: Publish Post
+      contact: Add contact details
+    edit:
+      edited: Update Post
     new:
-      new_post_title: Add a new recipe
-      title: add a title to your recipe
-      time: time taken?
-      ingrediants: add the list of ingrediants
-      recipe: add your recipe, as a list or a paragraph
-      submit: Add Recipe
+      title: Create and publish your post!
     add_post:
       not_submitted: Check all fields
       post_posted: Uploaded recipe successfully
+    show:
+      edit: Edit post
+      delete: Delete post
+      confirmation: Are you sure?
+    destroy:
+      success: Your post has been successfully deleted!
+      fail: Error occured post can not be deleted!
   shared:
     header:
       signin: Sign in
       signout: Sign out
       register: Register
+      post: Publish Post

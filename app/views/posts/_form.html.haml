@@ -1,13 +1,14 @@
-= simple_form_for @post, :html => { :multipart => true }do |f|
-	= f.input :title
-	= f.input :description, label: 'Type a description'
-	= select_tag(:category_id, options_for_select(@list), :prompt => 'Select a Categories') 
-	= f.input :price
-	= f.input :phone_number, label: 'Phone number'
-	= f.input :city, label: 'City'
-	= f.input :address_one, label: 'Address line 1'
-	= f.input :address_two, label: 'Address line 2'
-	= f.input :address_three, label: 'Address line 3'
-	= f.input :postal_code, label: 'Postal code'
-	= f.button :submit, label: 'Publish Post'
-end
+= simple_form_for @post, :html => { :multipart => true } do |f|
+	= f.input :title,label: false, placeholder: t('.title')
+	= f.input :description,label: false, placeholder: t('.description')
+	= select_tag(:category_id, options_for_select(@list), :prompt => t('.category'))
+	= f.input :price,label: false, placeholder: t('.price')
+	%h4= t('.contact')
+	= f.input :phone_number,label: false, placeholder: t('.number')
+	= f.input :city,label: false, placeholder: t('.city')
+	= f.input :address_one,label: false, placeholder: t('.address_one')
+	= f.input :address_two,label: false, placeholder: t('.address_two')
+	= f.input :address_three,label: false, placeholder: t('.address_three')
+	= f.input :postal_code,label: false, placeholder: t('.postal_code')
+	= f.button :submit, label: t('.submit')
+

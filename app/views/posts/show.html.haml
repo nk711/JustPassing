@@ -1,12 +1,15 @@
 %h2= @post.title
 %p= @post.description
 %p= @post.category.name
+%p= @post.user.id
+-#%p= current_user.id
+%p= user_signed_in?
 
-= link_to 'Back', posts_path
+- if user_signed_in? && @post.user_id == current_user.id
+		%li= link_to t('.edit'), edit_post_path(@post)
+		%li= link_to t('.delete'), post_path(@post), method: :delete, data: { confirm: t('.confirmation')}
 
-- if user_signed_in?
+%li= link_to t('.back'), posts_path
 
-	- if @post.user_id == current_user.id?
-		= link_to 'Edit', edit_post_path(@post)
-		= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?'}
+
 

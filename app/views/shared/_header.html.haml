@@ -1,13 +1,13 @@
 %nav.navbar.navbar-default
 	.container
 		.navbar-header
-			= link_to 'PassBy', root_path, class: 'navbar-brand'
+			= link_to t('.app_title'), root_path, class: 'navbar-brand'
 		
 		%ul.nav.navbar-nav.pull-right
-			%li= link_to 'Register', new_user_registration_path
+			%li= link_to t('.register'), new_user_registration_path
 			- if user_signed_in?
-				%li= link_to 'Sign out', destroy_user_session_path, method: :delete
-				%li= link_to 'Publish Post', new_post_path
+				%li= link_to t('.signout'), destroy_user_session_path, method: :delete
+				%li= link_to t('.post'), new_post_path
 			- else
-				%li= link_to 'Sign in', new_user_session_path
-
+				%li= link_to t('.signin'), new_user_session_path
+				
