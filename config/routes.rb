@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :profiles
   resources :reviews
   devise_for :users
   #get 'pages/index'
@@ -21,5 +22,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :posts
+
+  
 
 end
