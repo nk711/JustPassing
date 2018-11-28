@@ -1,6 +1,4 @@
 
-= render 'filter'
-
 %h1.category= params[:category]
 
 - if @posts.count == 0
@@ -8,9 +6,14 @@
 
 %h1 List of Posts
 
-- @posts.each do |post|
-	%h3= link_to post.title, post_path(post)
-	%p= post.description
+
+.row
+	- @posts.each do |post|
+		.col-md-4
+			%a{:href => "/posts/#{post.id}"}
+				= image_tag post.post_image.url(:post_index), class: "post"
+				%h3= link_to post.title, post_path(post)
+			%p= post.description
 
 
 

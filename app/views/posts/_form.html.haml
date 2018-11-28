@@ -1,4 +1,5 @@
 = simple_form_for @post, :html => { :multipart => true } do |f|
+	= f.file_field :post_image
 	= f.input :title,label: false, placeholder: t('.title')
 	= f.input :description,label: false, placeholder: t('.description')
 	= select_tag(:category_id, options_for_select(@list), :prompt => t('.category'))

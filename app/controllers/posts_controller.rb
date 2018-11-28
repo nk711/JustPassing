@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
 	def update
 		@post.category_id = params[:category_id]
-		if @book.update(post_params) 
+		if @post.update(post_params) 
 			redirect_to post_path(@post)
 		else
 			render :edit
@@ -69,6 +69,7 @@ class PostsController < ApplicationController
 		#populates the instance of a new post model from the form
 		def post_params	
 				params.require(:post).permit(
+					:post_image,
 					:title,
 					:description,
 					:price,

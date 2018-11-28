@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Review:
+  = @model.Review
+%p
+  %b Rating:
+  = @model.rating
+%p
+  %b Comment:
+  = @model.comment
+
+= link_to 'Edit', edit_model_path(@model)
+\|
+= link_to 'Back', models_path

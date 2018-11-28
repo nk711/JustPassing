@@ -1,13 +1,23 @@
-%h2= @post.title
-%p= @post.description
-%p= @post.category.name
-%p= @post.user.id
--#%p= current_user.id
-%p= user_signed_in?
+
+.row
+	.col-md-4
+		= image_tag @post.post_image.url(:post_show), class: "post-show"
+	
+	.col-md-8
+		%h2= @post.title
+		%p= @post.description
+		%p= @post.category.name if @post.category
+		%p= @post.user.id
+
+.row
+	.col-md-4
+		-#comments
+
+		
 
 - if user_signed_in? && @post.user_id == current_user.id
-		%li= link_to t('.edit'), edit_post_path(@post)
-		%li= link_to t('.delete'), post_path(@post), method: :delete, data: { confirm: t('.confirmation')}
+	%li= link_to t('.edit'), edit_post_path(@post)
+	%li= link_to t('.delete'), post_path(@post), method: :delete, data: { confirm: t('.confirmation')}
 
 %li= link_to t('.back'), posts_path
 

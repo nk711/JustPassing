@@ -1,6 +1,7 @@
 %div.container
 	%h3= t('.title')
 	= simple_form_for @post, :html => { :multipart => true } do |f|
+		= f.file_field :post_image
 		= f.input :title,label: false, placeholder: t('posts.form.title')
 		= f.input :description,label: false, placeholder: t('posts.form.description')
 		= f.select :category_id, @list, class: "form-control"
