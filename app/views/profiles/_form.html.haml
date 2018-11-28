@@ -1,9 +1,12 @@
 -# frozen_string_literal: true
 = simple_form_for(@profile) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
-
-  .form-actions
-    = f.button :submit
+	= f.input :first_name ,label: false, placeholder: "first name"
+	= f.input :last_name ,label: false, placeholder:  "last name"
+	%h4 Optional Contact Information
+	= f.input :number,label: false, placeholder: t('.number')
+	= f.input :city,label: false, placeholder: t('.city')
+	= f.input :address_one,label: false, placeholder: t('.address_one')
+	= f.input :address_two,label: false, placeholder: t('.address_two')
+	= f.input :address_three,label: false, placeholder: t('.address_three')
+	= f.input :postal_code,label: false, placeholder: t('.postal_code')
+	= f.button :submit, label: t('.submit')

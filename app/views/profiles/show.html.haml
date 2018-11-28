@@ -1,6 +1,16 @@
 %p#notice= notice
 
+%p= current_user.profile.first_name
+%p= current_user.profile.last_name
+%p= current_user.email
+%p= current_user.profile.number
+%p= current_user.profile.city
+%p= current_user.profile.address_one
+%p= current_user.profile.address_two 
+%p= current_user.profile.address_three
+%p= current_user.profile.postal_code
+
 
 = link_to 'Edit', edit_profile_path(@profile)
 \|
-= link_to 'Back', profiles_path
+= link_to 'Back', root_path

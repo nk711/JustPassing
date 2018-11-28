@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   #get 'pages/index'
 
   get 'contact', to:'pages#contact'
-  get 'profile', to:'users#profile'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
