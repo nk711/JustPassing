@@ -1,16 +1,40 @@
 %p#notice= notice
 
-%p= current_user.profile.first_name
-%p= current_user.profile.last_name
-%p= current_user.email
-%p= current_user.profile.number
-%p= current_user.profile.city
-%p= current_user.profile.address_one
-%p= current_user.profile.address_two 
-%p= current_user.profile.address_three
-%p= current_user.profile.postal_code
+%p= @profile.first_name
+%p= @profile.last_name
+%p= @profile.user.email
+%p= @profile.number
+%p= @profile.city
+%p= @profile.address_one
+%p= @profile.address_two 
+%p= @profile.address_three
+%p= @profile.postal_code
 
 
 = link_to 'Edit', edit_profile_path(@profile)
 \|
 = link_to 'Back', root_path
+
+.br
+.br
+.h2 Seller's Feedback
+
+- if current_user.profile != nil 
+	= link_to "Add Review", new_profile_review_path(@profile) 
+
+.br
+.hr
+
+
+= render 'review'
+
+:javascript
+	$(document).ready(function() {
+		$('.review-rating').raty({
+			readOnly: true,
+			score: function() {
+				return $(this).attr('data-score');
+			},
+			path: '/assets/'
+		});
+	});

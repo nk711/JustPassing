@@ -1,11 +1,4 @@
--# frozen_string_literal: true
-= simple_form_for(@review) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
-  .form-inputs
-    = f.input :rating
-    = f.input :comment
-
-  .form-actions
-    = f.button :submit
+= simple_form_for([@profile, @profile.reviews.build]) do |f|
+	= f.input :rating ,label: false, placeholder: "rating"
+	= f.input :comment ,label: false, placeholder:  "Write a comment!"
+	= f.button :submit, label: t('.submit')

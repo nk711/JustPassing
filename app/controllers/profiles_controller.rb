@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @reviews = Review.where(profile_id: params[:id])
+    @reviews = @reviews.order(created_at: :desc)
   end
 
   # building a profile for the current user

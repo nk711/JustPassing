@@ -7,7 +7,7 @@
 		%h2= @post.title
 		%p= @post.description
 		%p= @post.category.name if @post.category
-		%p= @post.user.id
+		%p= link_to @post.user.profile.first_name, @post.user.profile
 
 .row
 	.col-md-4

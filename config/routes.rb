@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
  
-  resources :profiles
-  resources :reviews
+  resources :profiles do
+     resources :reviews
+  end
   devise_for :users
   #get 'pages/index'
 

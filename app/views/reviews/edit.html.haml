@@ -1,7 +1,8 @@
 %h1 Editing review
 
-= render 'form'
+= simple_form_for([@profile, @review]) do |f|
+	= f.input :rating ,label: false, placeholder: "rating"
+	= f.input :comment ,label: false, placeholder:  "Write a comment!"
+	= f.button :submit, label: t('.submit')
 
-= link_to 'Show', @review
-\|
-= link_to 'Back', reviews_path
+= link_to 'Back', profile_path(@profile)
