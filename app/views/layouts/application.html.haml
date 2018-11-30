@@ -31,3 +31,13 @@
         = yield
 
       = render 'shared/footer'
+
+
+:javascript
+  $('.review-rating').raty({
+    path: '/assets'
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });

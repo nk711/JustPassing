@@ -1,3 +1,5 @@
+= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false
+
 %p#notice= notice
 
 %p= @profile.first_name
@@ -19,8 +21,9 @@
 .br
 .h2 Seller's Feedback
 
-- if current_user.profile != nil 
-	= link_to "Add Review", new_profile_review_path(@profile) 
+- if current_user != nil
+	- if current_user.profile != nil 
+		= link_to "Add Review", new_profile_review_path(@profile) 
 
 .br
 .hr
