@@ -2,6 +2,13 @@
 
 %p#notice= notice
 
+
+%p= @avg
+.avg-rating{'data-score' => @avg}
+%little
+	based on
+	=@reviews.count
+	customer feedback
 %p= @profile.first_name
 %p= @profile.last_name
 %p= @profile.user.email
@@ -21,9 +28,14 @@
 .br
 .h2 Seller's Feedback
 
+-#Only allow user to add a review only if the three conditions are met
+-#	 1) the user is signed in
+-#	 2) the user has set up their profile
+-#	 3) the user is not on their own profile page
 - if current_user != nil
 	- if current_user.profile != nil 
-		= link_to "Add Review", new_profile_review_path(@profile) 
+		-if @profile.id!= current_user.profile.id
+			= link_to "Add Review", new_profile_review_path(@profile) 
 
 .br
 .hr
@@ -32,12 +44,19 @@
 = render 'review'
 
 :javascript
-	$(document).ready(function() {
-		$('.review-rating').raty({
-			readOnly: true,
-			score: function() {
-				return $(this).attr('data-score');
-			},
-			path: '/assets/'
-		});
+	$('.review-rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		}
+	});
+
+:javascript
+	$('.avg-rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		}
 	});

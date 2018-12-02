@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :edit]
   # GET /profiles
   # GET /profiles.json
   def index
@@ -12,6 +12,16 @@ class ProfilesController < ApplicationController
   def show
     @reviews = Review.where(profile_id: params[:id])
     @reviews = @reviews.order(created_at: :desc)
+
+    #If the reviews is blank..
+    if @reviews.blank?
+      #set average as 0
+      @avg=0
+    else
+      #else if the reviews section is not blank
+      @avg = @reviews.average(:rating).round(2)
+    end
+
   end
 
   # building a profile for the current user
@@ -82,4 +92,5 @@ class ProfilesController < ApplicationController
           :postal_code,
           :user_id)
     end
+
 end

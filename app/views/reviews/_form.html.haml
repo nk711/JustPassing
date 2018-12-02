@@ -1,4 +1,4 @@
 = simple_form_for([@profile, @profile.reviews.build]) do |f|
-	= f.input :rating ,label: false, placeholder: "rating"
+	= f.input :rating ,label: false, placeholder: "Rate the seller, enter a value between 0 and 5"
 	= f.input :comment ,label: false, placeholder:  "Write a comment!"
 	= f.button :submit, label: t('.submit')
