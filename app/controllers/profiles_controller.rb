@@ -1,11 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
-  # GET /profiles
-  # GET /profiles.json
-  def index
-    @profiles = Profile.all
-  end
+
 
   # GET /profiles/1
   # GET /profiles/1.json
@@ -27,6 +23,7 @@ class ProfilesController < ApplicationController
   # building a profile for the current user
   def new
     @profile = current_user.build_profile
+    @created = true
   end
 
   # GET /profiles/1/edit

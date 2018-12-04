@@ -1,8 +1,8 @@
 %h1 Editing review
 
 = simple_form_for([@profile, @review]) do |f|
-	= f.input :rating ,label: false, placeholder: "Rate the seller, enter a value between 0 and 5"
-	= f.input :comment ,label: false, placeholder:  "Write a comment!"
-	= f.button :submit, label: t('.submit')
+	= f.input :rating ,label: false, placeholder: t('reviews.rating')
+	= f.input :comment ,label: false, placeholder:  t('reviews.comment')
+	= f.button :submit, t('reviews.submit')
 
-= link_to 'Back', profile_path(@profile)
+= link_to t('back'), profile_path(@profile)

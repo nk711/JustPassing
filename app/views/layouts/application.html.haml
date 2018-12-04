@@ -8,6 +8,7 @@
     %title= t('app_title')
 
     %meta{'name' => 'description', 'content' => t('app_description')}
+    /content equals to the width of the device, allows for responsive design
     %meta{'name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'}
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
@@ -18,17 +19,13 @@
   %body
 
 
-    %section
-
-      = render 'shared/header'
+  = render 'shared/header'
 
     
-      /alerts the user of a message from devise 
-      /%p.notice= notice
-      /%p.alert= alert
-      
-      .container
-        = yield
+  /alerts the user of a message from devise 
+  /%p.notice= notice
+  /%p.alert= alert
+  = yield
 
-      = render 'shared/footer'
+  = render 'shared/footer'
 

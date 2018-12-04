@@ -4,11 +4,14 @@
 			= link_to t('app_title'), root_path, class: 'navbar-brand'	
 		%ul.nav.navbar-nav.pull-right
 			- if user_signed_in?
-				- if current_user.profile == nil 
-					%li= link_to 'Create Profile', new_profile_path
-				- else
-					%li= link_to 'My Profile', current_user.profile
+				- if current_user.profile==nil
+					%li= link_to t('.createprofile'), new_profile_path
+				- elsif current_user.profile.new_record?
+					%li= link_to t('.createprofile'), new_profile_path
+				- elsif current_user.profile.persisted?
+					%li= link_to t('.myprofile'), current_user.profile
 					%li= link_to t('.post'), new_post_path
+
 				%li= link_to t('.signout'), destroy_user_session_path, method: :delete
 			- else
 				%li= link_to t('.register'), new_user_registration_path

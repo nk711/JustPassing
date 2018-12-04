@@ -1,3 +1,94 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* a font variable holding the font sans serif */
+$font-san-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/*Points to the html object with id masthead in the post view */
+header.masthead {
+  margin-bottom: 50px; 
+  background: no-repeat center center; /* Positions the background image */
+  background-color: #868e96; /*Sets a colour to the background */
+  position: relative; /* the 'elements position is relative to its normal position' */
+  background-size: cover;  /*Resizes the background image to cover the entire container */
+}
+
+/*Points to the html object with class name overlay, in masthead, in the post view */
+header.masthead .overlay {
+  /* 'element is positioned relative to its first positioned element' in this case 'masthead'
+	  top/left/height/width, used to cover the masthead element
+	  background colour is set to a dark colour
+	  opacity is applied to add visual effect to the image
+  */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #2F3136;
+  opacity: 0.6;
+}
+
+/* Always design for mibile first
+	-makes page faster on smaller devices
+
+	DESIGN FOR MOBILE PHONES
+*/
+/*Points to the object with class name site-heading, in masthead, in the post view */
+header.masthead .site-heading {
+  padding: 125px 0 150px;
+  color: white;
+  text-align: center;
+}
+
+/*Points to the h1 element in site-heading, in masthead, in the post view */
+header.masthead .site-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+  font-family: $font-san-serif;
+}
+
+/*Points to the object with class name .subheading, in sub-heading, in masthead, in the post view */
+header.masthead .site-heading .subheading {
+  font-size: 14px;
+  line-height: 0.8;
+  display: block;
+  font-family: $font-san-serif;
+}
+
+/* DESIGN FOR LARGER DEVICES */
+@media only screen and (min-width: 768px) {
+/*Points to the object with class name site-heading, in masthead, in the post view */
+	header.masthead .site-heading {
+  	 padding: 150px 0 175px;
+	}
+/*Points to the h1 element in site-heading, in masthead, in the post view */
+	header.masthead .site-heading h1 {
+ 	 font-size: 65px;
+	}
+/*Points to the object with class name .subheading, in sub-heading, in masthead, in the post view */
+	header.masthead .site-heading .subheading {
+ 	 font-size: 16px;
+	}
+}
+
+/* DESIGN FOR EVEN LARGER DEVICES */
+@media only screen and (min-width: 992px) {
+/*Points to the object with class name site-heading, in masthead, in the post view */
+	header.masthead .site-heading {
+  	 padding: 175px 0 200px;
+	}
+/*Points to the h1 element in site-heading, in masthead, in the post view */
+	header.masthead .site-heading h1 {
+ 	 font-size: 75px;
+	}
+/*Points to the object with class name .subheading, in sub-heading, in masthead, in the post view */
+	header.masthead .site-heading .subheading {
+ 	 font-size: 18px;
+	}
+}
+
+
+
+

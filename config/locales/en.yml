@@ -1,4 +1,4 @@
-# Files in the config/locales directory are used for internationalization
+# Files in the config/ocales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
 #
@@ -19,9 +19,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
-  app_title: PassBy
+  app_title: JustPassing
   app_Description: Sell sell sell
-  back: go back
+  back: Go Back
   pages:
     contact:
       about_title: About this site
@@ -39,14 +39,14 @@ en:
       description: Add a description
       category: Select a Category
       price: Add your price
-      number: Add your phone number
-      city: Enter City
-      address_one: Enter Address line one
+      number: Add your phone number *
+      city: Enter City *
+      address_one: Enter Address line one *
       address_two: Enter Address line two
       address_three: Enter Address line three
-      postal_code: Enter Postal code
+      postal_code: Enter Postal code *
       submit: Publish Post
-      contact: Add contact details
+      contact : Add contact details
     edit:
       edited: Update Post
     new:
@@ -57,13 +57,25 @@ en:
     show:
       edit: Edit post
       delete: Delete post
+      contact: Contact me
       confirmation: Are you sure?
     destroy:
       success: Your post has been successfully deleted!
       fail: Error occured post can not be deleted!
+  profiles:
+    form:  
+      first_name: Add your First Name
+      last_name : Add your Last Name 
+      button: Set Profile
+  reviews:
+    rating: Rate the seller, enter a value between 0 and 5
+    comment: Add comments about the seller
+    submit: Add Review
   shared:
     header:
       signin: Sign in
       signout: Sign out
       register: Register
       post: Publish Post
+      myprofile: My Profile
+      createprofile: Build Profile

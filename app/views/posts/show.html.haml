@@ -19,6 +19,17 @@
 	%li= link_to t('.edit'), edit_post_path(@post)
 	%li= link_to t('.delete'), post_path(@post), method: :delete, data: { confirm: t('.confirmation')}
 
+-# has the user logged in and set up a profile?
+-# If so display a contact button
+- if user_signed_in?
+	-if current_user.profile.persisted? && @post.user_id!=current_user.id
+		%li= link_to t('.contact'), posts_path
+
+.container
+	= render "contact"
+
+
+
 %li= link_to t('.back'), posts_path
 
 

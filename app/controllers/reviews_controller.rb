@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! only: [:edit, :new]
+  before_action :authenticate_user!, only: [:edit, :new]
   before_action :find_profile
   # GET /reviews
   # GET /reviews.json
