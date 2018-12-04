@@ -1,9 +1,10 @@
+
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* a font variable holding the font sans serif */
-$font-san-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 /*Points to the html object with id masthead in the post view */
 header.masthead {
@@ -46,7 +47,7 @@ header.masthead .site-heading {
 header.masthead .site-heading h1 {
   font-size: 50px;
   margin-top: 0;
-  font-family: $font-san-serif;
+  font-family: $font;
 }
 
 /*Points to the object with class name .subheading, in sub-heading, in masthead, in the post view */
@@ -54,7 +55,7 @@ header.masthead .site-heading .subheading {
   font-size: 14px;
   line-height: 0.8;
   display: block;
-  font-family: $font-san-serif;
+  font-family: $font;
 }
 
 /* DESIGN FOR LARGER DEVICES */
@@ -88,7 +89,5 @@ header.masthead .site-heading .subheading {
  	 font-size: 18px;
 	}
 }
-
-
 
 

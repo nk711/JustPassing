@@ -1,27 +1,18 @@
 %nav.navbar.navbar-default
-	.container
-		.navbar-header
-			= link_to t('app_title'), root_path, class: 'navbar-brand'	
-		%ul.nav.navbar-nav.pull-right
-			- if user_signed_in?
-				- if current_user.profile==nil
-					%li= link_to t('.createprofile'), new_profile_path
-				- elsif current_user.profile.new_record?
-					%li= link_to t('.createprofile'), new_profile_path
-				- elsif current_user.profile.persisted?
-					%li= link_to t('.myprofile'), current_user.profile
-					%li= link_to t('.post'), new_post_path
-
-				%li= link_to t('.signout'), destroy_user_session_path, method: :delete
-			- else
-				%li= link_to t('.register'), new_user_registration_path
-				%li= link_to t('.signin'), new_user_session_path
-		%ul.nav.navbar-nav.pull-right
-			%li.dropdown
-				%a.dropdown-toggle{'aria-expanded' => 'false', 'data-toggle' => 'dropdown', :href => '#', :role => 'button'} 
-					Categories
-					%span.caret
-				%ul.dropdown-menu{:role=>'menu'}
-					- Category.all.each do |category|
-						%li{:class => "#{'selected' if params[:category] == category.name}"} 
-						=link_to category.name, posts_path(category: category.name), class: 'link'
+  .container
+    .navbar-header
+      %span.navbar-brand.pull-left.hidden-sm.hidden-xs
+      = link_to t('app_title'), root_path, class: 'navbar-brand'	
+      %button.navbar-toggle{"aria-expanded" => "false", "data-target" => "#nav_collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    #nav_collapse.collapse.navbar-collapse.navbar-toggleable-xs
+      %ul.nav-list.nav.navbar-nav
+        %li.nav-item
+          %a.nav-link{:href => "#about"} About
+        %li.nav-item
+          %a.nav-link{:href => "#portfolio"} Portfolio
+        %li.nav-item
+          %a.nav-link{:href => "#contact"} Contact

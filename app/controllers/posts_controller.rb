@@ -64,6 +64,25 @@ class PostsController < ApplicationController
 		end
 	end
 
+
+	def request_contact
+		mail_name = current_user.profile.first_name + " " + current_user.profile.last_name
+		mail_email = current_user.email
+		mail_telephone = current_user.profile.phone_number
+		mail_message = params[:message]
+
+		if mail_message.blank?
+			flash[:alert] = I18n.t('posts.request_contact.no_message')
+		else
+			#vbtyufguv
+			flash[:alert] = I18n.t('posts.request_contact.email_sent')
+		end
+
+		redirect_to root_path
+	end
+
+
+
 	private
 		
 		#populates the instance of a new post model from the form

@@ -62,6 +62,9 @@ en:
     destroy:
       success: Your post has been successfully deleted!
       fail: Error occured post can not be deleted!
+    request_contact:
+      no_message: You must include a message!
+      email_sent: The Seller has been contacted!
   profiles:
     form:  
       first_name: Add your First Name
