@@ -81,7 +81,7 @@ class ProfilesController < ApplicationController
         params.require(:profile).permit(
           :first_name,
           :last_name,
-          :phone_number,
+          :number,
           :city,
           :address_one,
           :address_two,

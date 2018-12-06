@@ -11,8 +11,23 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery3
+//= require popper
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery.raty.js
 //= require turbolinks
 //= require_tree .
+$(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+		e.preventDefault();
+		var concept = $(this).text();
+		$('.search-panel span#search_concept').text(concept);
+	});
+
+
+    $('#menu').click(function() {
+    	$(this).toggleClass('clicked');
+  	});
+
+});

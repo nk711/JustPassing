@@ -26,3 +26,120 @@
 	height: 300px;
 	width: 300px;
 }
+
+
+.navbar {
+	width:100%;
+    margin-bottom: 0!important;
+}
+
+
+.navbar-default {
+    background-color: #323232;
+    border-color: #323232;
+}
+
+
+
+.navbar-default .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-collapse ul.navbar-nav>li>a {
+    color: #FFFFFF;
+}
+.navbar-default .navbar-collapse ul.navbar-nav>li>a:hover {
+    color: #d3d3d3;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #d3d3d3;
+}
+
+/*this removes the white line below the navbar+div when the toggle button is pressed*/
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFFFF;
+}
+
+
+/* USE JQUERY HERE */
+/*Sets the button outline to the same colour as the navbar  */
+
+.navbar-default .navbar-toggle {
+    border-color: #323232;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFFFF;
+}
+
+/*
+.navbar-default .navbar-toggle:focus {
+	border-color: #323232;
+  	background-color: #3c3c3c;
+}
+
+.navbar-default .navbar-toggle:focus .icon-bar{
+  	background-color: #d3d3d3;
+}
+.navbar-default .navbar-toggle:hover {
+    background-color: #3c3c3c;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #d3d3d3;
+}
+*/
+#manu:hover,
+#menu.clicked {
+	background-color: #3c3c3c;
+}
+
+.navbar-header .navbar-brand {
+	position: absolute;
+	height: 100%;
+	left: 45px;
+    vertical-align: middle;
+}
+
+.navbar-header .navbar-brand img{
+	position: absolute;
+	height: 100%;
+	top: 0px;
+	left: -40px;
+	max-width: 47px;
+	max-height: 45px;
+	margin-top: 2px;
+    vertical-align: middle;
+}
+
+/* DESIGN FOR LARGER DEVICES
+	The logo kept moving when the screen size was greater than 768
+	so the logo was adjusted to keep it in place
+ */
+@media only screen and (min-width: 768px) {
+/*Points to the object with class name site-heading, in masthead, in the post view */
+	.navbar-header .navbar-brand {
+		position: absolute;
+		height: 100%;
+		left: 60px;
+	    vertical-align: middle;
+	}
+
+	.navbar-header .navbar-brand img{
+		position: absolute;
+		height: 100%;
+		top: 0px;
+		left: -40px;
+		max-width: 47px;
+		max-height: 45px;
+		margin-top: 2px;
+	    vertical-align: middle;
+	}
+}

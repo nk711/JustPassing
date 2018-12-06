@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
           format.html { redirect_to @profile, notice: 'Review was successfully created.' }
           format.json { render :show, status: :created, location: @review }
       else
-          format.html { redirect_to @new, notice: "Error occured, please try again!" }
+          format.html { redirect_to  new_profile_review_path, notice: "Error occured, please try again!" }
           format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     
