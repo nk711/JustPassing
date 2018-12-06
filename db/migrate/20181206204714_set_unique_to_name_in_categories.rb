@@ -1,5 +1,6 @@
 class SetUniqueToNameInCategories < ActiveRecord::Migration
   def change
-  	add_index :categories, :name, unique: true
+  	change_column_null :categories, :name, false
+
   end
 end
