@@ -49,6 +49,7 @@ en:
       contact : Add contact details
     edit:
       edited: Update Post
+      title: Editing post...
     new:
       title: Create and publish your post!
     add_post:

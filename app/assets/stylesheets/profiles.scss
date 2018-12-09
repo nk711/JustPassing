@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.container {
+/* Moves header below the nav bar */
+.container#forms {
 	margin-top: 60px;
+	padding: 0 30px;
+	height: 80vh;
 }
