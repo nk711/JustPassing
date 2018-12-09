@@ -82,12 +82,7 @@ h2.container {
       }
     }
 
-    a:hover, a:focus, a:active {
-      text-decoration: none;
-      color: inherit;
-    }
-
-
+  
     .card {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       transition: 0.3s;
@@ -116,7 +111,7 @@ h2.container {
       }
       
       .description {
-        padding: 0px 5px;
+        padding: 0px 10px;
         /* unvisited link */
         h4 {
           overflow-wrap: break-word;
