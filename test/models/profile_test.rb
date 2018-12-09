@@ -6,7 +6,8 @@ class ProfileTest < ActiveSupport::TestCase
   # end
 
   setup do
-  	@user = users(:three)
+    @user = users(:three)
+    @user1 = users(:one)
   end
 
   #Checks if a valid post is successfully added into the database
@@ -65,5 +66,18 @@ class ProfileTest < ActiveSupport::TestCase
     refute profile.valid?
   end
 
+  #Checks if a valid profile is successfully added into the database
+  test 'should not save profile if user already has one' do
+    profile = Profile.new
+    profile.first_name = "Bob"
+    profile.last_name = "biller"
+    profile.number =  "02937482636"
+    profile.address_one = "test lane4"
+    profile.city =  "cityyy"
+    profile.postal_code = "se4 2sn"
+    profile.user = @user1
+    profile.save
+    refute profile.valid?
+  end
 
 end

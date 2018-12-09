@@ -18,43 +18,83 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.post {
-	height: 300px;
-	width: 300px;
+$warm-colour: #efefef;
+$shadow-effect: inset 0px 0px 50px rgba(0,0,0,0.55);
+$hover-colour: #d3d3d3;
+
+$font: sans serif;
+
+$white: #FFFFFF;
+/* Nav bar colours */
+$navbar-background: #323232;
+
+
+/*Toggle button background colour */
+$toggle-active-background: #3c3c3c;
+
+/* Globally setting font family to be sans serif */
+* {
+	font-family: $font !important;
 }
-.post-show {
-	height: 300px;
-	width: 300px;
+
+/*Sets the background color*/
+body {
+  background: $warm-colour;
+  box-shadow: $shadow-effect;
+  /* Disabling the horizontal side bar */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+hr {
+  height: 1px;
+  color: #d2d2d2;
+  background-color: #d2d2d2;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #d2d2d2, rgba(0, 0, 0, 0));
+  border: none;
 }
 
 
+/* NAVBAR 
+ ======================================*/
+
+/* Fixes the position of the nav bar at the top
+   makes sure it covers the full width of the body 
+   margin is added to prevent white space
+   opacity is added for design*/
 .navbar {
+	position: fixed;
 	width:100%;
     margin-bottom: 0!important;
+    opacity: 0.85;
 }
 
 
+/* Sets the background and border color of the navbar*/
 .navbar-default {
-    background-color: #323232;
-    border-color: #323232;
+    background-color: $navbar-background;
+    border-color: $navbar-background;
 }
 
 
 
-.navbar-default .navbar-brand {
-    color: #FFFFFF;
-}
-
+/* Sets element a descendent of lia nd li as white
+   Sets the navbar brand as white*/
+.navbar-default .navbar-brand,
 .navbar-default .navbar-collapse ul.navbar-nav>li>a {
-    color: #FFFFFF;
-}
-.navbar-default .navbar-collapse ul.navbar-nav>li>a:hover {
-    color: #d3d3d3;
+    color: $white;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: #d3d3d3;
+/* If the user hovers over the a element.. */
+.navbar-default .navbar-collapse ul.navbar-nav>li>a:hover {
+    color: $hover-colour;
+} 
+
+/* If the user hovers over the nav brand, an opacity is applied */
+.navbar-default .navbar-brand:hover {
+    color: $hover-colour;
+    opacity: 0.8;
 }
 
 /*this removes the white line below the navbar+div when the toggle button is pressed*/
@@ -63,61 +103,97 @@
     box-shadow: none;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #FFFFFF;
-}
 
-
-/* USE JQUERY HERE */
-/*Sets the button outline to the same colour as the navbar  */
-
+/* CSS for the nav bar toggle button */
 .navbar-default .navbar-toggle {
-    border-color: #323232;
+	/* sets a colour to the border to blend with the nav bar */
+    border-color: $navbar-background;
+
+    /* sets the icon bar as white */
+    .icon-bar {
+   	 background-color: $white;
+	}	
+
+	/* if the user hovers over the toggle button
+	   - changes background colour
+	   - changes icon colour */
+	&:hover {
+		background-color: $toggle-active-background;
+		.icon-bar {
+			background-color: $hover-colour;
+		}
+	}
+
+	/* if the user clicks the toggle button
+		-background colour is changed
+		-icon colour is changed
+		unfocus is sorted out in JQuery */
+	&:focus {
+		border-color: $navbar-background;
+  		background-color: $toggle-active-background;
+
+  		.icon-bar {
+  			background-color: $hover-colour;
+  		}
+	}
+
+
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #FFFFFF;
-}
-
-/*
-.navbar-default .navbar-toggle:focus {
-	border-color: #323232;
-  	background-color: #3c3c3c;
-}
-
-.navbar-default .navbar-toggle:focus .icon-bar{
-  	background-color: #d3d3d3;
-}
-.navbar-default .navbar-toggle:hover {
-    background-color: #3c3c3c;
-}
-
-.navbar-default .navbar-toggle:hover .icon-bar {
-    background-color: #d3d3d3;
-}
-*/
-#manu:hover,
-#menu.clicked {
-	background-color: #3c3c3c;
-}
-
+/* Sets the position of the nav bar*/
 .navbar-header .navbar-brand {
 	position: absolute;
 	height: 100%;
 	left: 45px;
     vertical-align: middle;
+
+    /* Aligns the image with the brand name
+       struggled alot with this bit ;L */
+    img {
+    	position: absolute;
+		height: 100%;
+		top: 0px;
+		left: -40px;
+		max-width: 47px;
+		max-height: 45px;
+		margin-top: 2px;
+	    vertical-align: middle;
+    }
 }
 
-.navbar-header .navbar-brand img{
-	position: absolute;
-	height: 100%;
-	top: 0px;
-	left: -40px;
-	max-width: 47px;
-	max-height: 45px;
-	margin-top: 2px;
-    vertical-align: middle;
+/*
+	INTRO/FOOTER
+	==============================
+*/
+.intro {
+	font-weight: 400;
+	font-size: 16px;
+	text-align: center;
+	line-height: 20px;
+
+	#wrap.wrapper {
+		padding: 40px 40px;
+		padding-top: 10px;
+	}
+
 }
+
+footer {
+	width: 100%;
+	background-color: $navbar-background;
+
+	.wrapper {
+		padding: 60px 0;
+	}
+
+	li {
+		display: inline;
+		margin-left:20px;
+		list-style: none;
+	}
+
+}
+
 
 /* DESIGN FOR LARGER DEVICES
 	The logo kept moving when the screen size was greater than 768
@@ -130,16 +206,16 @@
 		height: 100%;
 		left: 60px;
 	    vertical-align: middle;
-	}
 
-	.navbar-header .navbar-brand img{
-		position: absolute;
-		height: 100%;
-		top: 0px;
-		left: -40px;
-		max-width: 47px;
-		max-height: 45px;
-		margin-top: 2px;
-	    vertical-align: middle;
+	    img {
+	    	position: absolute;
+			height: 100%;
+			top: 0px;
+			left: -40px;
+			max-width: 47px;
+			max-height: 45px;
+			margin-top: 2px;
+		    vertical-align: middle;
+	    }
 	}
 }

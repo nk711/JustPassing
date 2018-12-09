@@ -1,5 +1,5 @@
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
-/usr/bin/ruby2.5 -r ./siteconf20181121-9271-ygbwed.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20181209-7054-3mr2rj.rb extconf.rb
 creating Makefile
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
@@ -16,4 +16,4 @@ linking shared-object bcrypt_ext.so
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20181121-9271-6becop
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20181209-7054-eixnmi

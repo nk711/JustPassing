@@ -86,8 +86,7 @@ class ProfilesController < ApplicationController
           :address_one,
           :address_two,
           :address_three,
-          :postal_code,
-          :user_id)
+          :postal_code)
     end
 
 end

@@ -1,5 +1,5 @@
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
-/usr/bin/ruby2.5 -r ./siteconf20181121-9271-govpg7.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20181209-7054-1if1iku.rb extconf.rb
 creating Makefile
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
@@ -12,4 +12,4 @@ linking shared-object debug_inspector.so
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/debug_inspector-0.0.3/ext/debug_inspector
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 debug_inspector.so ./.gem.20181121-9271-18oo2i
+/usr/bin/install -c -m 0755 debug_inspector.so ./.gem.20181209-7054-s70b5v

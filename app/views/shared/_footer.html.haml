@@ -1,0 +1,17 @@
+%footer
+	.wrapper
+		.nav
+			%ul
+				%li= link_to 'Home', root_path
+				- if user_signed_in?
+					- if current_user.profile==nil
+						%li= link_to t('shared.header.createprofile'), new_profile_path
+					- elsif current_user.profile.new_record?
+						%li= link_to t('shared.header.createprofile'), new_profile_path
+					- elsif current_user.profile.persisted?
+						%li= link_to t('shared.header.post'), new_post_path
+						%li= link_to t('shared.header.myprofile'), current_user.profile
+						%li= link_to t('shared.header.signout'), destroy_user_session_path, method: :delete
+				- else
+					%li= link_to t('shared.header.register'), new_user_registration_path
+					%li= link_to t('shared.header.signin'), new_user_session_path

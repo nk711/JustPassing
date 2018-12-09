@@ -1,56 +1,32 @@
-%header.masthead{style: "background-image: url('assets/sample.jpg')"}
-	.overlay
-	.container
-		.row
-			.col-lg-12.mx-auto
-				.site-heading
-					%h1 Just Passing
-					.container
-						.row
-							.col-xs-8.col-xs-offset-2
-								.input-group
-									.input-group-btn.search-panel
-										%button#menu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-											%span#search_concept Categories
-											%span.caret
-										%ul.dropdown-menu{:role => "menu"}
-											- Category.all.each do |category|
-												%li{:class => "#{'selected' if params[:category] == category.name}"} 
-													=link_to category.name, posts_path(category: category.name), class: 'link'
-											%li.divider
-											%li
-												%a{:href => "/"} All
-									%input#search_param{:name => "search_param", :type => "hidden", :value => "all"}
-										%input.form-control{:name => "x", :placeholder => "Search for something", :type => "text"}
-											%span.input-group-btn
-												%button.btn.btn-default{:type => "button"}
-													%span.glyphicon.glyphicon-search
-					%br
-					%span.subheading Treat yourself this Christmas
+-# masthead containing an image that covers the width of a page
+-# Has a title, subehading and a search bar taken from: 
+-# https://bootsnipp.com/snippets/featured/search-panel-with-filters
+= render 'masthead'
 
 .container
 	%h2.category
-		%span.categories 
+		%span.categories
 			- if (params[:category]==nil) 
 				Recently added posts
 			- else
 				= params[:category]
 			- if @posts.count == 0
 				%p= t('.no_post')
-			%hr
+		%hr
 
-
-	.row
+	.masonry
 		- @posts.each do |post|
-			.col-md-4
+			.card
 				%a{:href => "/posts/#{post.id}"}
 					= image_tag post.post_image.url(:post_index), class: "post"
-					%h3= link_to post.title, post_path(post)
-				%p= post.description
+					.description
+						%h4= post.title
+						%p= post.price
 
 
+	%hr 
+		.intro
+			#wrap.wrapper
+				%h3 Web Application Project
+				%p based on a website such as gumtree allowing users to make and upload posts to make some money.
 
-
-	= link_to t('.add_post'), new_post_path
-
-	 

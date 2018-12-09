@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class ReviewsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+  
   setup do
     @review = reviews(:one)
+    @profile = profiles(:one)
+    @user = users(:three)
+    @user2 = users(:one)
   end
 
   test "should get index" do
@@ -17,6 +22,7 @@ class ReviewsControllerTest < ActionController::TestCase
   end
 
   test "should create review" do
+    sign_in @user2
     assert_difference('Review.count') do
       post :create, review: { comment: @review.comment, rating: @review.rating }
     end
@@ -45,5 +51,5 @@ class ReviewsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to reviews_path
-  end
+  end                     
 end

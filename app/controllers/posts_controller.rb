@@ -9,7 +9,10 @@ class PostsController < ApplicationController
 			@posts = Post.all.descending
 		else
 			@category_id = Category.find_by(name: params[:category]).id
-			@posts = Post.where(:category_id => @category_id).descending
+			posts = Post.where(:category_id => @category_id).descending
+			# Splits the array into further arrays which would represent rows, the rows will then 
+			# be displayed on the index page
+
 		end
 	end
 
@@ -18,8 +21,6 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-		@list = Category.all.map{ |c| [c.name, c.id]}
-
 	end
 
 	def destroy
@@ -46,14 +47,13 @@ class PostsController < ApplicationController
 		#@post = Post.new
 		@post = current_user.posts.build
 		#Gets all the catogories
-		@list = Category.all.map{ |c| [c.name, c.id]}
 	end
 
 	def create
 
 		#@post = Post.new(post_params)
 		@post =current_user.posts.build(post_params)
-		@post.category_id = params[:category_id]
+		@post.category = Category.find(post_params[:category_id].to_i)
 
 		if @post.save
 			#If the post saved succesfully then redirect to root path (index)
@@ -66,16 +66,16 @@ class PostsController < ApplicationController
 
 
 	def request_contact
-		mail_name = current_user.profile.first_name + " " + current_user.profile.last_name
-		mail_email = current_user.email
-		mail_telephone = current_user.profile.phone_number
+		mail_name = params[:name]
+		mail_email = params[:email]
+		mail_telephone = params[:telephone]
 		mail_message = params[:message]
 
 		if mail_message.blank?
 			flash[:alert] = I18n.t('posts.request_contact.no_message')
 		else
 			#vbtyufguv
-			flash[:alert] = I18n.t('posts.request_contact.email_sent')
+			flash[:notice] = I18n.t('posts.request_contact.email_sent')
 		end
 
 		redirect_to root_path

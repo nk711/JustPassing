@@ -1,5 +1,5 @@
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.3.13/ext/sqlite3
-/usr/bin/ruby2.5 -r ./siteconf20181121-14076-w0vyok.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20181209-7054-18nv2o8.rb extconf.rb
 checking for sqlite3.h... yes
 checking for pthread_create() in -lpthread... yes
 checking for sqlite3_libversion_number() in -lsqlite3... yes
@@ -30,4 +30,4 @@ linking shared-object sqlite3/sqlite3_native.so
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/sqlite3-1.3.13/ext/sqlite3
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 sqlite3_native.so ./.gem.20181121-14076-1uq3xm1/sqlite3
+/usr/bin/install -c -m 0755 sqlite3_native.so ./.gem.20181209-7054-beyy1x/sqlite3

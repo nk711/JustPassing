@@ -1,4 +1,8 @@
 = simple_form_for request_contact_path do |f|
 	= f.input :message,label: false, placeholder: "Enter a message"
 	= f.button :submit, "Contact Seller"
+	= f.input :name, :as => :hidden, :input_html => { :value => (current_user.profile.first_name + " " + current_user.profile.last_name)}
+	= f.input :telephone, :as => :hidden, :input_html => { :value => "some value" }
+	= f.input :email, :as => :hidden, :input_html => { :value => "some value" }
+
 

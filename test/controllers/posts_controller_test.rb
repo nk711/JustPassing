@@ -1,27 +1,67 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  include Devise::Test::ControllerHelpers
 
-  def create_user 
-    
-
+  setup do
+    @post = posts(:one)
+    @user = users(:three) #does not have a profile
+    @user2 = users(:one) # does have a profile
+    sign_in @user2
   end
-  
- 
-   test "should get index" do
-    get :index
 
-    
+  #Get index posts form
+  test "should get index" do
+    get :index
     assert_response :success
    end
 
 
+  #Get new posts form
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  #Create new post [testing POST]
+  test "should create post" do
+    assert_difference('Post.count') do
+      post :create, post: @post.attributes
+    end
+    assert_redirected_to post_path(assigns(:post))
+  end
+
+  #Get show post form
+  test "should show post" do
+    get :show, id: @post
+    assert_response :success
+  end
+
+  #Get edit post form
+  test "should get edit" do
+    get :edit, id: @post
+    assert_response :success
+  end
+
+  #Updates post form [testing PATCH]
+  test "should update post" do
+    patch :update, id: @post, post: {
+          phone_number: '02084932792'
+      }
+    assert_redirected_to root_path
+  end
+
+  #deletes a post form [testing DELETE]
+  test "should destroy post" do
+    assert_difference('Post.count', -1) do
+      delete :destroy, id: @post
+    end
+    assert_redirected_to root_path
+  end
+
+
   test "should post request contact but no email" do
     post :request_contact
-
     assert_response :redirect
     assert_not_empty flash[:alert]
     assert_nil flash[:notice]

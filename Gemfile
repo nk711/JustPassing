@@ -21,8 +21,12 @@ gem 'haml-rails'
 
 gem 'bootstrap-sass', '~>3.3.6'
 
+gem 'materialize-sass'
+
 gem 'modernizr-rails'
+
 gem 'bootstrap', '~> 4.1.3'
+
 gem 'simple_form'
 
 gem 'paperclip', '~> 6.0.0'

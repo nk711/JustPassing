@@ -1,5 +1,5 @@
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
-/usr/bin/ruby2.5 -r ./siteconf20181121-14076-h5nkwm.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20181209-7054-7dozem.rb extconf.rb
 creating Makefile
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
@@ -16,4 +16,4 @@ linking shared-object byebug/byebug.so
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 byebug.so ./.gem.20181121-14076-16x1gqr/byebug
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20181209-7054-1czqabj/byebug

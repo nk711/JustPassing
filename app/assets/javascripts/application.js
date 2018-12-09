@@ -25,9 +25,12 @@ $(document).ready(function(e){
 		$('.search-panel span#search_concept').text(concept);
 	});
 
-
-    $('#menu').click(function() {
+    $('#toggle').click(function() {
     	$(this).toggleClass('clicked');
   	});
+
+    $(".navbar-toggle").mouseup(function(){
+    	$(this).blur();
+	})
 
 });

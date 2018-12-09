@@ -2,7 +2,7 @@
 	= f.file_field :post_image
 	= f.input :title,label: false, placeholder: t('.title')
 	= f.input :description,label: false, placeholder: t('.description')
-	= select_tag(:category_id, options_for_select(@list), :prompt => t('.category'))
+	= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), class: "form-control"
 	= f.input :price,label: false, placeholder: t('.price')
 	%h4= t('.contact')
 	= f.input :phone_number,label: false, placeholder: t('.number')

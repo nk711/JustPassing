@@ -1,5 +1,5 @@
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.8.5/ext/nokogiri
-/usr/bin/ruby2.5 -r ./siteconf20181121-9271-10sizig.rb extconf.rb --use-system-libraries
+/usr/bin/ruby2.5 -r ./siteconf20181209-7054-7fpq8e.rb extconf.rb --use-system-libraries
 checking if the C compiler accepts ... yes
 Building nokogiri using system libraries.
 checking for xmlParseDoc() in libxml/parser.h... yes
@@ -103,4 +103,4 @@ rm -rf /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bun
 
 current directory: /home/nithesh/Documents/web coursework/nk00374_com2025_project/vendor/bundle/ruby/2.5.0/gems/nokogiri-1.8.5/ext/nokogiri
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20181121-9271-rt6ybs/nokogiri
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20181209-7054-1lzkwe6/nokogiri

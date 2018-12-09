@@ -4,7 +4,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* a font variable holding the font sans serif */
-$font: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font: sans-serif;
 
 /*Points to the html object with id masthead in the post view */
 header.masthead {
@@ -62,37 +62,152 @@ h2.container {
   text-align: center;
 }
 
+
+.post-show {
+  height: 300px;
+  width: 300px;
+}
+
+
+/* Using the masonary css to get a dynamic grid like design pattern */
+.masonry { /* Masonry container */
+    /* The number of columns that should be in the container */
+    column-count: 1; 
+    /* Gap between the columns */
+    column-gap: 1em;
+    
+    &:hover{
+      img {
+        opacity:0.65;
+      }
+    }
+
+    a:hover, a:focus, a:active {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      display: inline-block;
+      background-color: #EBEBEB; 
+      margin: 0 0 1em;
+
+      a:active,
+      a:hover,
+      a:visited,
+      a:link {
+        color: #333333;
+      }
+
+      a .post {
+        width: 100%;
+        display:block;
+        transition:all .8s;
+        border-radius: 5px;
+        &:hover{
+          opacity:1;
+        }
+      }
+      
+      .description {
+        padding: 0px 5px;
+        /* unvisited link */
+        h4 {
+          overflow-wrap: break-word;
+        }
+        p {
+          color: #505050;
+        }
+
+      }
+
+      &:hover{
+        box-shadow: 0px 8px 16px 0 rgba(0,0,0,0.2);
+        img {
+        opacity:1;
+      }
+      }
+    }
+}
+
+
+/* DESIGN FOR SMALL DEVICES */
+@media only screen and (min-width: 600px) {
+/*Points to the object with class name site-heading, in masthead, in the post view */
+  .masonry { /* Masonry container */
+    /* The number of columns that should be in the container */
+    column-count: 2; 
+    /* Gap between the columns */
+    column-gap: 1em;
+  }
+
+}
+
+
 /* DESIGN FOR LARGER DEVICES */
 @media only screen and (min-width: 768px) {
 /*Points to the object with class name site-heading, in masthead, in the post view */
-	header.masthead .site-heading {
+  header.masthead .site-heading {
    padding: 150px 0 175px;
    width: 100%;
-	}
+  }
 /*Points to the h1 element in site-heading, in masthead, in the post view */
-	header.masthead .site-heading h1 {
- 	 font-size: 65px;
-	}
+  header.masthead .site-heading h1 {
+   font-size: 65px;
+  }
 /*Points to the object with class name .subheading, in sub-heading, in masthead, in the post view */
-	header.masthead .site-heading .subheading {
- 	 font-size: 16px;
-	}
+  header.masthead .site-heading .subheading {
+   font-size: 16px;
+  }
+
+  .masonry { /* Masonry container */
+    /* The number of columns that should be in the container */
+    column-count: 3; 
+    /* Gap between the columns */
+    column-gap: 1em;
+  }
 }
 
 /* DESIGN FOR EVEN LARGER DEVICES */
 @media only screen and (min-width: 992px) {
 /*Points to the object with class name site-heading, in masthead, in the post view */
-	header.masthead .site-heading {
+  header.masthead .site-heading {
    padding: 175px 0 200px;
    width: 100%;
-	}
+  }
 /*Points to the h1 element in site-heading, in masthead, in the post view */
-	header.masthead .site-heading h1 {
- 	 font-size: 75px;
-	}
+  header.masthead .site-heading h1 {
+   font-size: 75px;
+  }
 /*Points to the object with class name .subheading, in sub-heading, in masthead, in the post view */
-	header.masthead .site-heading .subheading {
- 	 font-size: 18px;
-	}
+  header.masthead .site-heading .subheading {
+   font-size: 18px;
+  }
+
+  .masonry { /* Masonry container */
+    /* The number of columns that should be in the container */
+    column-count: 4; 
+    /* Gap between the columns */
+    column-gap: 1em;
+  }
+
 }
 
+
+/* DESIGN FOR EXTRA LARGE DEVICES */
+@media only screen and (min-width: 1200px) {
+/*Points to the object with class name site-heading, in masthead, in the post view */
+  .masonry { /* Masonry container */
+    /* The number of columns that should be in the container */
+    column-count: 5; 
+    /* Gap between the columns */
+    column-gap: 1em;
+  }
+
+}
