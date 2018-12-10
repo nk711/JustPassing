@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
- 
+  after_create :register_email
+  def register_email
+    ContactMailer.register_email(self).deliver_now
+  end
+
 end

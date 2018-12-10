@@ -44,7 +44,9 @@ en:
       links:
         signup: Don't have an account? Register Now
         account: Already have an account? Log in now!
-
+  contact_mailer:
+    register_email:
+      heading: Welcome  
   pages:
     contact:
       about_title: About this site

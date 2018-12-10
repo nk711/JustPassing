@@ -125,11 +125,13 @@ class PostsController < ApplicationController
 
       	#Checks to see if the current user is the creator of the post before the editing/creating/updating/deleting/ actions
       	def check
-      		unless current_user.id == @post.user_id
-    		 flash[:notice] = t('.alertno')
-     		 redirect_to post_path(@post)
-      		 return
-      		end
+      		if user_signed_in?
+	      		unless current_user.id == @post.user_id
+	    		 flash[:notice] = t('.alertno')
+	     		 redirect_to post_path(@post)
+	      		 return
+	      		end
+	      	end
       		#Gets redirected back to the post show page
       	end
 		

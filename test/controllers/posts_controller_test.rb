@@ -14,6 +14,12 @@ class PostsControllerTest < ActionController::TestCase
     @post.save
   end
 
+  teardown do
+    # resets the cache
+    Rails.cache.clear
+  end
+ 
+
   #Get index posts form
   test "should get index" do
     get :index
@@ -49,10 +55,8 @@ class PostsControllerTest < ActionController::TestCase
 
   #Updates post form [testing PATCH]
   test "should update post" do
-    patch :update, id: @post, post: {
-          phone_number: '02084932792'
-      }
-    assert_redirected_to root_path
+    patch :update, id: @post, post: {phone_number: '02084932792'}
+    assert_redirected_to post_path(assigns(:post))
   end
 
   #deletes a post form [testing DELETE]
