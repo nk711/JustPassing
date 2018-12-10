@@ -1,0 +1,37 @@
+.container#wrapped
+  #devise_signin.row
+    .col-md-8.col-md-offset-2
+      .panel.panel-default
+        .panel-body
+          %h1= t('.title')
+          = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            = f.error_notification
+            .form-inputs
+              = f.input :email,                       
+                required: true,                       
+                autofocus: true,
+                label: false,   
+                placeholder:t('devise.sessions.new.email'),                          
+                input_html: { autocomplete: "email" } 
+              -#
+              = f.input :password,                                                                    
+                required: true,   
+                label: false,   
+                placeholder:t('.password'),        
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), 
+                input_html: { autocomplete: "new-password" }                                          
+              -#
+              = f.input :password_confirmation,              
+                required: true,     
+                label: false,   
+                placeholder:t('.confirmation'), 
+                input_html: { autocomplete: "new-password" } 
+            .form-actions
+              = f.button :submit, t('.signup')
+          %br
+          = render "devise/shared/links"
+        .panel-footer
+          .row
+            .col-md-12
+              .btn-group.pull-right
+                = link_to t('back'), root_path, class: "btn btn-default"  

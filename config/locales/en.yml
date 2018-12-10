@@ -26,13 +26,22 @@ en:
   additional: Contact Information
   devise:
     sessions:
-        new:
-          login: Log in
-          email: Enter your email
-          password: Enter your password
+      new:
+        login: Log in
+        email: Enter your email
+        password: Enter your password
+    registrations:
+      edit:
+
+      new:
+        title: It Begins now...
+        password: Enter a new password
+        confirmation: Re-type new password
+        signup: Sign Up
     shared:
-        links:
-          signup: Don't have an account? Register Now
+      links:
+        signup: Don't have an account? Register Now
+        account: Already have an account? Log in now!
 
   pages:
     contact:
