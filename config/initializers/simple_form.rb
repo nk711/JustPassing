@@ -72,6 +72,7 @@ SimpleForm.setup do |config|
   #   inline: input + label
   #   nested: label > input
   config.boolean_style = :nested
+  config.boolean_style = :inline
 
   # Default class for buttons
   config.button_class = 'btn'

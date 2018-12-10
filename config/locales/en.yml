@@ -32,7 +32,7 @@ en:
           password: Enter your password
     shared:
         links:
-          signup: Register
+          signup: Don't have an account? Register Now
 
   pages:
     contact:
