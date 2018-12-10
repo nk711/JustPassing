@@ -4,6 +4,7 @@
 			.panel.panel-default
 				.panel-body
 					%h1= t('.login')
+					%hr
 					-# FORM FOR A USER TO SIGN IN
 					= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 						.form-inputs
@@ -12,19 +13,22 @@
 							required: false,                      
 							autofocus: true,   
 							label: false,   
-							placeholder: '',                
+							placeholder: t('.email'),              
 							input_html: { autocomplete: "email" } 
 							-# password field 
 							= f.input :password,                               
 							required: false, 
-							label: false,                             
+							label: false,   
+							placeholder: t('.password'),  
 							input_html: { autocomplete: "current-password" } 
-							-# Remember me option 
-							= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 						.form-actions
 							-# Submit button 
 							= f.button :submit, "Log in"
 							-# renders some links
+						%br
+							-# Remember me option 
+							= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
 							= render "devise/shared/links"
 				.panel-footer
 					.row

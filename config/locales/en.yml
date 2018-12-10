@@ -28,6 +28,10 @@ en:
     sessions:
         new:
           login: Log in
+          email: Enter your email
+          password: Enter your password
+    shared:
+        links:
           signup: Register
 
   pages:
