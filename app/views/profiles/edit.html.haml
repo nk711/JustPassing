@@ -1,5 +1,12 @@
-%h1 Edit Profile
-= link_to t('back'), profile_path
-
-= render 'form'
-
+.container#wrapped
+	#profile_edit.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-body
+					%h1= t('.title')
+					=render 'form'
+				.panel-footer
+					.row
+						.col-md-12
+							.btn-group.pull-right
+								= link_to t('back'), root_path, class: "btn btn-default"

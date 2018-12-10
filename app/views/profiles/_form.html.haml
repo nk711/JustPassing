@@ -2,7 +2,7 @@
 = simple_form_for(@profile) do |f|
 	= f.input :first_name ,label: false, placeholder: t('.first_name')
 	= f.input :last_name ,label: false, placeholder:  t('.last_name')
-	%h4 Optional Contact Information
+	%h4= t('additional')
 	= f.input :number,label: false, placeholder: t('posts.form.number')
 	= f.input :city,label: false, placeholder: t('posts.form.city')
 	= f.input :address_one,label: false, placeholder: t('posts.form.address_one')

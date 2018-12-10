@@ -1,46 +1,51 @@
-= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false
+.container#wrapped
+	#profile_show.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-body
+					- if user_signed_in? && @profile.user_id == current_user.id
+						%h1= t('.myprofile')
+					- else 
+						%h1= @profile.first_name + ' ' + @profile.last_name + ' Profile'
+					%hr.divider
+					.avg-rating{'data-score' => @avg}
+					%p
+						%small
+							= t('.based')
+							=@reviews.count
+							= t('.reviews')
 
-%p= @avg
-.avg-rating{'data-score' => @avg}
+					%p= @profile.user.email
+					%p= @profile.number
+					-# has the user logged in and set up a profile?
+					-# is it their own profile?
+					-# If so display a their contact details
+					%p= @profile.city
+					%p= @profile.address_one
+					%p= @profile.address_two 
+					%p= @profile.address_three
+					%p= @profile.postal_code
+					- if user_signed_in? && @profile.user_id != current_user.id
+						.btn-group#right.pull-left
+							= link_to t('.addreview'), new_profile_review_path(@profile), class: "btn btn-default", id: 'review-btn'
+					%br
+					%br
+					=render 'review'
 
+				.panel-footer
+					.row
+						.col-md-12
+							- if user_signed_in? && @profile.user_id == current_user.id
+								.btn-group.pull-right
+									= link_to t('.edit'), edit_profile_path(@profile), class: "btn btn-default"
+									= link_to t('.back'), root_path, class: "btn btn-default"
+							- else
+								.btn-group.pull-right
+									= link_to t('.back'), root_path, class: "btn btn-default"
 
-%little
-	based on
-	=@reviews.count
-	customer feedback
-%p= @profile.first_name
-%p= @profile.last_name
-%p= @profile.user.email
-%p= @profile.number
-%p= @profile.city
-%p= @profile.address_one
-%p= @profile.address_two 
-%p= @profile.address_three
-%p= @profile.postal_code
+-# Renders all the posts that the user has submitted
 
-
-= link_to 'Edit', edit_profile_path(@profile)
-\|
-= link_to 'Back', root_path
-
-.br
-.br
-.h2 Seller's Feedback
-
--#Only allow user to add a review only if the three conditions are met
--#	 1) the user is signed in
--#	 2) the user has set up their profile
--#	 3) the user is not on their own profile page
-- if current_user != nil
-	- if current_user.profile != nil 
-		-if @profile.id!= current_user.profile.id
-			= link_to "Add Review", new_profile_review_path(@profile) 
-
-.br
-.hr
-
-
-= render 'review'
+= render 'shared/posts'
 
 :javascript
 	$('.review-rating').raty({

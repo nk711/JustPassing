@@ -1,3 +1,12 @@
-%h1 New profile
-
-= render 'form'
+.container#wrapped
+	#profile_new.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-body
+					%h1= t('.title')
+					=render 'form'
+				.panel-footer
+					.row
+						.col-md-12
+							.btn-group.pull-right
+								= link_to t('back'), root_path, class: "btn btn-default"

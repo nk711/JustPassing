@@ -3,9 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-/* Moves header below the nav bar */
-.container#forms {
-	margin-top: 60px;
+ /* Moves header below the nav bar */
+#profile_show.row {
+	margin-top: 80px;
 	padding: 0 30px;
-	height: 80vh;
+	height: 45vh;
+}
+
+#profile_new.row {
+	margin: 80px 0px;
+	padding: 0 30px;
+	height: 70vh;
+}
+
+#profile_edit.row {
+	margin: 80px 0px;
+	padding: 0 30px;
+	height: 70vh;
+}
+
+hr.divider {
+	margin: 0em;
+  	border-width: 2px;
+  	margin-bottom:10px;
 }

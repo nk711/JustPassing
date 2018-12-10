@@ -7,26 +7,19 @@
 	%h2.category
 		%span.categories
 			- if (params[:category]==nil) 
-				Recently added posts
+				=t('.recent')
 			- else
 				= params[:category]
 			- if @posts.count == 0
 				%p= t('.no_post')
 		%hr
 
-	.masonry
-		- @posts.each do |post|
-			.card
-				%a{:href => "/posts/#{post.id}"}
-					= image_tag post.post_image.url(:post_index), class: "post"
-					.description
-						%h4= post.title
-						%p= post.price
-
+	-#Displays all posts in descending order of creation
+	= render 'shared/posts'
 
 	%hr 
 		.intro
 			#wrap.wrapper
-				%h3 Web Application Project
-				%p based on a website such as gumtree allowing users to make and upload posts to make some money.
+				%h3= t('.myproject')
+				%p= t('.myappdescription')
 

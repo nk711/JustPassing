@@ -1,0 +1,9 @@
+.container
+	.masonry
+		- @posts.each do |post|
+			.card
+				%a{:href => "/posts/#{post.id}"}
+					= image_tag post.post_image.url(:post_index), class: "post"
+					.description
+						%h4= post.title
+						%p= post.price

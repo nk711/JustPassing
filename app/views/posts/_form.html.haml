@@ -1,8 +1,11 @@
 = simple_form_for @post, :html => { :multipart => true } do |f|
-	= f.file_field :post_image
+
+	.form-group
+		= f.input :post_image, input_html: {class: 'form-control'}, label: false
 	= f.input :title,label: false, placeholder: t('.title')
 	= f.input :description,label: false, placeholder: t('.description')
-	= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), class: "form-control"
+	.form-group
+		= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), input_html: {class: "form-control"}
 	= f.input :price,label: false, placeholder: t('.price')
 	%h4= t('.contact')
 	= f.input :phone_number,label: false, placeholder: t('.number')

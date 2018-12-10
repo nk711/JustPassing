@@ -1,3 +1,18 @@
-.container#forms
-	%h3= t('.title')
-	= render 'form'
+.container#wrapped
+	#post_edit.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-heading.post_image
+					= image_tag @post.post_image.url(:post_show), class: "image_show"
+				.panel-body
+					%h3= t('.title')
+					=render 'form'
+				.panel-footer
+					.row
+						.col-md-12
+							.btn-group.pull-right
+								= link_to t('.back'), root_path, class: "btn btn-default"
+
+
+	
+

@@ -39,7 +39,7 @@ $toggle-active-background: #3c3c3c;
 
 
 /*Sets the background color*/
-html, body {
+body {
   background: $warm-colour;
   box-shadow: $shadow-effect;
   /* Disabling the horizontal side bar */
@@ -60,9 +60,44 @@ hr {
 }
 
  a:hover, a:focus, a:active {
+ 	background: transparent;
     text-decoration: none;
     color: inherit;
  }
+
+
+
+.panel-heading.post_image {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+	.image_show {
+		flex-shrink: 0;
+   		min-width: 100%;
+   		min-height: 100%;
+	}
+}
+
+
+
+/* ALERTS
+ ======================================*/
+.container#alerts {
+	margin-top:40px;
+	margin: 0px 20px;
+}
+
+
+/* DEVISE: LOGIN STYLING
+========================================*/
+
+#devise_signin.row {
+	margin: 80px 0px;
+	padding: 0 30px;
+	height: 70vh;
+}
 
 
 
@@ -191,7 +226,7 @@ hr {
 footer {
 	width: 100%;
 	background-color: $navbar-background;
-
+	
 	.wrapper {
 		padding: 60px 0;
 		nav ul {

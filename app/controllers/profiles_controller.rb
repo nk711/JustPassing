@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
     @reviews = Review.where(profile_id: params[:id])
     @reviews = @reviews.order(created_at: :desc)
 
+    @posts = Post.where(:user_id => @profile.user_id).descending
     #If the reviews is blank..
     if @reviews.blank?
       #set average as 0

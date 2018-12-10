@@ -1,0 +1,35 @@
+.container#wrapped
+	#devise_signin.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-body
+					%h1= t('.login')
+					-# FORM FOR A USER TO SIGN IN
+					= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+						.form-inputs
+							-# email field 
+							= f.input :email,                       
+							required: false,                      
+							autofocus: true,   
+							label: false,   
+							placeholder: '',                
+							input_html: { autocomplete: "email" } 
+							-# password field 
+							= f.input :password,                               
+							required: false, 
+							label: false,                             
+							input_html: { autocomplete: "current-password" } 
+							-# Remember me option 
+							= f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+						.form-actions
+							-# Submit button 
+							= f.button :submit, "Log in"
+							-# renders some links
+							= render "devise/shared/links"
+				.panel-footer
+					.row
+						.col-md-12
+							
+							.btn-group.pull-right
+								= link_to t('back'), root_path, class: "btn btn-default"
+	

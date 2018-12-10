@@ -62,12 +62,24 @@ h2.container {
   text-align: center;
 }
 
-
 .post-show {
   height: 300px;
   width: 300px;
 }
 
+ /* Moves header below the nav bar */
+#post_show.row {
+	margin: 80px 0px;
+	padding: 0 30px;
+	height: 90vh;
+}
+
+ /* Moves header below the nav bar */
+#post_edit.row {
+	margin: 80px 0px;
+	padding: 0 30px;
+	height: 140vh;
+}
 
 /* Using the masonary css to get a dynamic grid like design pattern */
 .masonry { /* Masonry container */
@@ -130,6 +142,7 @@ h2.container {
       }
     }
 }
+
 
 
 /* DESIGN FOR SMALL DEVICES */

@@ -20,8 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
   app_title: JustPassing
+  app_title_space: Just Passing
   app_Description: Sell sell sell
-  back: Go Back
+  back: Back
+  additional: Contact Information
+  devise:
+    sessions:
+        new:
+          login: Log in
+          signup: Register
+
   pages:
     contact:
       about_title: About this site
@@ -34,7 +42,11 @@ en:
       title: This page will list all the user's posts
       add_post: Publish Post
       no_post: Currently no Posts according to match
+      recent: Recently added posts
+      myproject: Web Application Project
+      myappdescription: Based on a website familiar to gumtree and facebook market allowing users to make and upload posts to make some money.
     form:
+      nosave: prevented this post from saving
       title: Add a Title to your post
       description: Add a description
       category: Select a Category
@@ -57,6 +69,8 @@ en:
       post_posted: Uploaded recipe successfully
     show:
       edit: Edit post
+      email: "Email:"
+      creator: Posted by
       delete: Delete post
       contact: Contact me
       confirmation: Are you sure?
@@ -71,6 +85,17 @@ en:
       first_name: Add your First Name
       last_name : Add your Last Name 
       button: Set Profile
+    show:
+      edit: Edit Profile
+      back: Back
+      myprofile: My Profile
+      addreview: Add Review
+      based: Average Rating based on
+      reviews: customer reviews
+    new: 
+      title: Set up your profile
+    edit:
+      title: Edit profile
   reviews:
     rating: Rate the seller, enter a value between 0 and 5
     comment: Add comments about the seller
