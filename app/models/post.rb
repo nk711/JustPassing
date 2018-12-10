@@ -16,6 +16,5 @@ class Post < ActiveRecord::Base
     message: "Enter valid postal code" }
 
 	has_attached_file :post_image, styles: { post_index: "300x300>", post_show: "300x300>" }, default_url: "/images/:style/missing.png"
- 	validates :post_image,   :attachment_presence => true
  	validates_attachment_content_type :post_image, content_type: /\Aimage\/.*\z/
 end

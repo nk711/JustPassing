@@ -73,13 +73,12 @@ en:
       address_three: Enter Address line three
       postal_code: Enter Postal code *
       submit: Publish Post
+      editsubmit: Pubilsh edited post
       contact : Add contact details
     edit:
       edited: Update Post
       title: Editing post...
-      alertedit: "You don't have permissions to edit this post!"
-      alertdestroy: "You don't have permissions to destroy this post!"
-      alertupdate: "You don't have permissions to update this post!"
+      alertno: "You don't have permissions to do this!"
       alertnew: "Set up your profile before creating a post"
     new:
       title: Create and publish your post!

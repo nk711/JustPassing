@@ -4,15 +4,25 @@
 		= f.input :post_image, input_html: {class: 'form-control'}, label: false
 	= f.input :title,label: false, placeholder: t('.title')
 	= f.input :description,label: false, placeholder: t('.description')
-	.form-group
+	.form-group#category
 		= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), input_html: {class: "form-control"}
 	= f.input :price,label: false, placeholder: t('.price')
 	%h4= t('.contact')
-	= f.input :phone_number,label: false, placeholder: t('.number')
-	= f.input :city,label: false, placeholder: t('.city')
-	= f.input :address_one,label: false, placeholder: t('.address_one')
-	= f.input :address_two,label: false, placeholder: t('.address_two')
-	= f.input :address_three,label: false, placeholder: t('.address_three')
-	= f.input :postal_code,label: false, placeholder: t('.postal_code')
-	= f.button :submit, t('.submit')
-
+	-# Displays the user's address from profile, only if the user is creating a new post, not editing
+	- if current_page?(controller: :posts, action: :new)
+		= f.input :phone_number,label: false, placeholder: t('.number'), input_html: {value: current_user.profile.number}
+		= f.input :city,label: false, placeholder: t('.city'),  input_html: {value: current_user.profile.city}
+		= f.input :address_one,label: false, placeholder: t('.address_one'),input_html: {value: current_user.profile.address_one}
+		= f.input :address_two,label: false, placeholder: t('.address_two'), input_html: {value: current_user.profile.address_two}
+		= f.input :address_three,label: false, placeholder: t('.address_three'), input_html: {value: current_user.profile.address_three}
+		= f.input :postal_code,label: false, placeholder: t('.postal_code'), input_html: {value: current_user.profile.postal_code }
+		= f.button :submit, t('.submit') 
+	- else
+		-# Displays the posts already existing address
+		= f.input :phone_number,label: false, placeholder: t('.number')
+		= f.input :city,label: false, placeholder: t('.city')
+		= f.input :address_one,label: false, placeholder: t('.address_one')
+		= f.input :address_two,label: false, placeholder: t('.address_two')
+		= f.input :address_three,label: false, placeholder: t('.address_three')
+		= f.input :postal_code,label: false, placeholder: t('.postal_code')
+		= f.button :submit, t('.editsubmit') 

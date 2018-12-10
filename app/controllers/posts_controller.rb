@@ -1,9 +1,8 @@
 class PostsController < ApplicationController
 	#runs the find_post method before the selected methods
-	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :find_post, :check, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, only: [:edit, :destroy, :update, :new, :create, :request_contact]
-	before_action :must_make_account, :check, only: [:edit, :destoy, :update, :new, :create, :request_contact]
-
+	before_action :must_make_account, only: [:edit, :destoy, :update, :new, :create, :request_contact]
 	#Represents the index action
 	#This will list all the posts depending on the selected category/query
 	def index
@@ -114,20 +113,22 @@ class PostsController < ApplicationController
 		#Checks to see if the current user has set up a profile before the editing/creating/updating/deleting/contacting actions
 		def must_make_account
 			#Checks if profile is nil, ie hasnt been set up
-			unless current_user.profile==nil
-    		 flash[:notice] = t('.alertnew')
-     		 redirect_to post_path(@post)
-      		return
+			if user_signed_in?
+				if current_user.profile==nil
+    		 		flash[:notice] = t('.alertnew')
+     		 		redirect_to post_path(@post)
+      				return
+      			end
       		end
       		#Gets redirected back to the post show page
       	end
 
-      	#Checks to see if the current user is the creator of the post before the editing/creating/updating/deleting/contacting actions
+      	#Checks to see if the current user is the creator of the post before the editing/creating/updating/deleting/ actions
       	def check
       		unless current_user.id == @post.user_id
-    		 flash[:notice] = t('.alertupdate')
+    		 flash[:notice] = t('.alertno')
      		 redirect_to post_path(@post)
-      		return
+      		 return
       		end
       		#Gets redirected back to the post show page
       	end

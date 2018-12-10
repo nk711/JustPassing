@@ -173,19 +173,6 @@ label {
 		}
 	}
 
-	/* if the user clicks the toggle button
-		-background colour is changed
-		-icon colour is changed
-		unfocus is sorted out in JQuery */
-	&:focus {
-		border-color: $navbar-background;
-  		background-color: $toggle-active-background;
-
-  		.icon-bar {
-  			background-color: $hover-colour;
-  		}
-	}
-
 
 }
 

@@ -4,10 +4,14 @@ class PostsControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
 
   setup do
-    @post = posts(:one)
     @user = users(:three) #does not have a profile
     @user2 = users(:one) # does have a profile
     sign_in @user2
+
+    @category = categories(:one)
+    @post = posts(:one)
+    @post.post_image =  File.new("test/fixtures/sample.jpg")
+    @post.save
   end
 
   #Get index posts form
@@ -28,7 +32,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_difference('Post.count') do
       post :create, post: @post.attributes
     end
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to root_path
   end
 
   #Get show post form

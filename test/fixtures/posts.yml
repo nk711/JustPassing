@@ -4,10 +4,11 @@ one:
   user: one
   title: MyString
   description: MyText
+  category: one
   price: £138.89
   phone_number: 02083746279
   address_one: test lane
-  address_two:
+  address_two: 
   address_three:
   city: London
   postal_code: sw8 3ns
@@ -23,3 +24,4 @@ two:
   address_three:
   city: London
   postal_code: sw3 3fs
+  category: one
