@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
 	#runs the find_post method before the selected methods
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, only: [:edit, :destroy, :update, :new, :create, :request_contact]
+	before_action :must_make_account, :check, only: [:edit, :destoy, :update, :new, :create, :request_contact]
 
-
-
+	#Represents the index action
+	#This will list all the posts depending on the selected category/query
 	def index
 		if params[:category].blank?
 			@posts = Post.all.descending
@@ -16,13 +18,16 @@ class PostsController < ApplicationController
 		end
 	end
 
+	#Represents the show action, allows the user to view a particular post
 	def show
-		
+		#no need to redirect user here
 	end
 
+	#Represents the edit action, allows the creator to edit their psot
 	def edit
 	end
 
+	#Represents the destroy action, only allows the creator to destroy their post
 	def destroy
 		if @post.destroy
 			flash[:notice] = t('.success')
@@ -33,6 +38,7 @@ class PostsController < ApplicationController
 		end
 	end
 
+	#Represents the Update aciton, only allows the creator to update their post
 	def update
 		@post.category_id = params[:category_id]
 		if @post.update(post_params) 
@@ -42,6 +48,7 @@ class PostsController < ApplicationController
 		end
 	end
 
+	#Represents the new action, only allows users with a profile to create a new post
 	def new
 		#Defines an instance of a model which can be used in our view
 		#@post = Post.new
@@ -49,8 +56,8 @@ class PostsController < ApplicationController
 		#Gets all the catogories
 	end
 
+	#Represents the create action, only allows users with a set up profile to create a new post
 	def create
-
 		#@post = Post.new(post_params)
 		@post =current_user.posts.build(post_params)
 		@post.category = Category.find(post_params[:category_id].to_i)
@@ -64,13 +71,15 @@ class PostsController < ApplicationController
 		end
 	end
 
-
+	#Thre request_contact action allows the user to send an email to the seller/post-creator
 	def request_contact
 		mail_name = params[:name]
 		mail_email = params[:email]
 		mail_telephone = params[:telephone]
 		mail_message = params[:message]
 
+		#If the messages are blank then dont sent the mail
+		# Else send the email!
 		if mail_message.blank?
 			flash[:alert] = I18n.t('posts.request_contact.no_message')
 		else
@@ -78,13 +87,14 @@ class PostsController < ApplicationController
 			flash[:notice] = I18n.t('posts.request_contact.email_sent')
 		end
 
+		# Redirect to root path (ie home page)
 		redirect_to root_path
 	end
 
 
 
 	private
-		
+		#Strong parameter!
 		#populates the instance of a new post model from the form
 		def post_params	
 				params.require(:post).permit(
@@ -101,6 +111,28 @@ class PostsController < ApplicationController
 					:category_id)
 		end
 
+		#Checks to see if the current user has set up a profile before the editing/creating/updating/deleting/contacting actions
+		def must_make_account
+			#Checks if profile is nil, ie hasnt been set up
+			unless current_user.profile==nil
+    		 flash[:notice] = t('.alertnew')
+     		 redirect_to post_path(@post)
+      		return
+      		end
+      		#Gets redirected back to the post show page
+      	end
+
+      	#Checks to see if the current user is the creator of the post before the editing/creating/updating/deleting/contacting actions
+      	def check
+      		unless current_user.id == @post.user_id
+    		 flash[:notice] = t('.alertupdate')
+     		 redirect_to post_path(@post)
+      		return
+      		end
+      		#Gets redirected back to the post show page
+      	end
+		
+      	#Finds the post with the parameter id passed in
 		def find_post
 			@post = Post.find(params[:id])
 		end

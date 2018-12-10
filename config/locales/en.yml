@@ -77,6 +77,10 @@ en:
     edit:
       edited: Update Post
       title: Editing post...
+      alertedit: "You don't have permissions to edit this post!"
+      alertdestroy: "You don't have permissions to destroy this post!"
+      alertupdate: "You don't have permissions to update this post!"
+      alertnew: "Set up your profile before creating a post"
     new:
       title: Create and publish your post!
     add_post:

@@ -16,8 +16,9 @@
 					-# If so display a contact button
 					-# if user_signed_in?
 					- if user_signed_in?
-						- if current_user.profile.persisted? &&  @post.user_id!=current_user.id
-							= render "contact"
+						- unless current_user.profile==nil
+							- if current_user.profile.persisted? &&  @post.user_id!=current_user.id
+								= render "contact"
 				.panel-footer
 					.row
 						.col-md-12

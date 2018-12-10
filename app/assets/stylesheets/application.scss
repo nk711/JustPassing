@@ -211,6 +211,17 @@ label {
 }
 
 /*
+Flash container msg
+==========================================*/
+.container#flash {
+	position:absolute;
+	top:60px;
+	z-index: 10;
+	opacity: 0.8;
+}
+
+
+/*
 	INTRO/FOOTER
 	==============================
 */
