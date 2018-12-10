@@ -25,14 +25,16 @@ en:
   back: Back
   additional: Contact Information
   devise:
+    passwords:
+      new:
+        title: Forgot your password?
+        submit: Send me reset password instructions
     sessions:
       new:
         login: Log in
         email: Enter your email
         password: Enter your password
     registrations:
-      edit:
-
       new:
         title: It Begins now...
         password: Enter a new password

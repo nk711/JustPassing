@@ -1,0 +1,23 @@
+.container#wrapped
+  #devise_signin.row
+    .col-md-8.col-md-offset-2
+      .panel.panel-default
+        .panel-body
+          %h1= t('.title')
+          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            = f.error_notification
+            %hr
+            .form-inputs
+              = f.input :email,                       
+                required: true,                       
+                autofocus: true,  
+                label: false,   
+                placeholder:t('devise.sessions.new.email'),                    
+                input_html: { autocomplete: "email" } 
+            .form-actions
+              = f.button :submit, t('.submit')
+        .panel-footer
+          .row
+            .col-md-12
+              .btn-group.pull-right
+                = link_to t('back'), new_user_session_path, class: "btn btn-default"  

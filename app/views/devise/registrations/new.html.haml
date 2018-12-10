@@ -7,20 +7,21 @@
           = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = f.error_notification
             .form-inputs
+              -#EMAIL FIELD
               = f.input :email,                       
                 required: true,                       
                 autofocus: true,
                 label: false,   
                 placeholder:t('devise.sessions.new.email'),                          
                 input_html: { autocomplete: "email" } 
-              -#
-              = f.input :password,                                                                    
+              -#PASSWORD FIELD
+              = f.input :password,                                                       
                 required: true,   
                 label: false,   
                 placeholder:t('.password'),        
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), 
                 input_html: { autocomplete: "new-password" }                                          
-              -#
+              -#PASSWORD CONFIRMATION FIELD
               = f.input :password_confirmation,              
                 required: true,     
                 label: false,   
