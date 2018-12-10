@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
- 
+  
+  #Feature has been removed due to errors
+  #post '/posts/:id/request_contact', to: 'posts#request_contact', as: 'request_contact'
   resources :profiles do
      resources :reviews
   end
@@ -7,12 +9,10 @@ Rails.application.routes.draw do
   #get 'pages/index'
 
   get 'contact', to:'pages#contact'
-
-  post 'request_contact', to: 'posts#request_contact'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  post 'request_contact', to: 'pages#request_contact'
   # Post controller -> Index view as root
   # get '/', to 'posts#index'
   root 'posts#index'

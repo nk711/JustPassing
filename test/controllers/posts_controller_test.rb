@@ -6,6 +6,7 @@ class PostsControllerTest < ActionController::TestCase
   setup do
     @user = users(:three) #does not have a profile
     @user2 = users(:one) # does have a profile
+    @user3 =  users(:two) # does have a profile
     sign_in @user2
 
     @category = categories(:one)
@@ -67,22 +68,19 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
+  # REMOVED FEATURE
+  #test "should post request contact but no email" do
+  #  post :request_contact
+  #  assert_response :redirect
+  #  assert_not_empty flash[:alert]
+  #  assert_nil flash[:notice]
+  #end
 
-  test "should post request contact but no email" do
-    post :request_contact
-    assert_response :redirect
-    assert_not_empty flash[:alert]
-    assert_nil flash[:notice]
-  end
-
-  test "should post request contact" do
-    post :request_contact,
-    name: "Matthew", email: "matthew@me.com",
-    telephone: "1234567890", message: "Hello"
-
-    assert_response :redirect
-    assert_nil flash[:alert]
-    assert_not_empty flash[:notice]
-  end
+  #test "should post request contact" do
+  #  post :request_contact, user: @user2, seller_user: @user3, post: @post, message: "Regarding this item...."
+  #  assert_response :redirect
+  #  assert_nil flash[:alert]
+  #  assert_not_empty flash[:notice]
+  #end
 
 end

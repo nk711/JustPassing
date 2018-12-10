@@ -1,5 +1,12 @@
-%h1 Make a comment about this seller
-
-= render 'form'
-
-= link_to t('back'), profile_path(@profile)
+.container#wrapped
+	#reviews_new.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-body
+					%h1= t('.title')
+					= render 'form'
+				.panel-footer
+					.row
+						.col-md-12
+							.btn-group.pull-right
+								= link_to t('back'), profile_path(@profile), class: "btn btn-default"

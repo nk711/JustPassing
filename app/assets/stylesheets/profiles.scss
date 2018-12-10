@@ -4,15 +4,19 @@
 
 
  /* Moves header below the nav bar */
-#profile_show.row {
-	margin-top: 80px;
-	padding: 0 30px;
-	height: 45vh;
-}
 
 .halfpage {
 	min-height:35vh;
 }
+
+
+#profile_show.row {
+	margin-top: 80px;
+	position: relative;
+	padding: 0 30px;
+	height: 45vh;
+}
+
 
 #profile_new.row {
 	margin: 80px 0px;

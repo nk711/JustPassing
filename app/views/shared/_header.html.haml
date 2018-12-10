@@ -12,6 +12,7 @@
     / Collect the nav links, forms, and other content for toggling
     #navbar-collapse.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
+        %li= link_to t('.contact'), contact_path
         - if user_signed_in?
           - if current_user.profile==nil
             %li= link_to t('.createprofile'), new_profile_path

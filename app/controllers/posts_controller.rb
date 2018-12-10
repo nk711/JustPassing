@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	#runs the find_post method before the selected methods
-	before_action :find_post, only: [:show, :edit, :update, :destroy]
+	before_action :find_post, only: [:show, :edit, :update, :destroy, :request_contact]
 	before_action :authenticate_user!, only: [:edit, :destroy, :update, :new, :create, :request_contact]
 	before_action :must_make_account, only: [:new, :create, :request_contact]
 	before_action :check, only: [:edit, :update, :destroy,]
@@ -70,25 +70,28 @@ class PostsController < ApplicationController
 		end
 	end
 
-	#Thre request_contact action allows the user to send an email to the seller/post-creator
-	def request_contact
-		mail_name = params[:name]
-		mail_email = params[:email]
-		mail_telephone = params[:telephone]
-		mail_message = params[:message]
+	#This feature failed to work, to reduce time waste it'll be removed and a contact page
+	#will be added instead
+	#The request_contact action allows the user to send an email to the seller/post-creator
+	#def request_contact
+	#	mail_user = params[:user] #User object
+	#	mail_seller_user = params[:seller_user]#Seller user object
+	#	mail_post = params[:post] #currently viewed post object
+	#	mail_message = params[:message] #the message
 
 		#If the messages are blank then dont sent the mail
 		# Else send the email!
-		if mail_message.blank?
-			flash[:alert] = I18n.t('posts.request_contact.no_message')
-		else
-			#vbtyufguv
-			flash[:notice] = I18n.t('posts.request_contact.email_sent')
-		end
+	#	if mail_message.blank?
+	#		flash[:alert] = I18n.t('posts.request_contact.no_message')
+	#	else
+	#		#sending email
+	#		ContactMailer.contact_email(mail_seller_user, mail_user, mail_post, mail_message).deliver_now
+	#		flash[:notice] = I18n.t('posts.request_contact.email_sent')
+	#	end
 
 		# Redirect to root path (ie home page)
-		redirect_to root_path
-	end
+	#	redirect_to root_path
+	#end
 
 
 
@@ -136,8 +139,11 @@ class PostsController < ApplicationController
       	end
 		
       	#Finds the post with the parameter id passed in
+      	# Also finds the user who is associated with the post
 		def find_post
 			@post = Post.find(params[:id])
+			@seller = User.find(@post.user.id)
 		end
+	
 
 end

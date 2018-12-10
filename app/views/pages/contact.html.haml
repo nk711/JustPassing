@@ -1,3 +1,18 @@
-%h1= t('.about_title')
-%p= t('.about_us')
-%h1= t('.faq_title')
+.container#wrapped
+	#contact.row
+		.col-md-8.col-md-offset-2
+			.panel.panel-default
+				.panel-body
+					%h1= t('.title')
+					%hr
+					= simple_form_for request_contact_path, method: :post do |f|
+						= f.input :name ,label: false, placeholder: t('.name')
+						= f.input :email ,label: false, placeholder: t('.email')
+						= f.input :telephone ,label: false, placeholder: t('.telephone')
+						= f.input :message ,label: false, placeholder: t('.message')
+						= f.button :submit, t('.submit')
+				.panel-footer
+					.row
+						.col-md-12
+							.btn-group.pull-right
+								= link_to t('back'), root_path, class: "btn btn-default"

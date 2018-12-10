@@ -54,9 +54,15 @@ en:
       ending: Kind Regards,
   pages:
     contact:
-      about_title: About this site
-      about_us: This site is for everyone who would like to share recipes
-      faq_title: Frequently Asked Questions
+      title: Get in touch with us
+      name: Enter your name
+      email: Enter your email
+      telephone: Enter your mobile number
+      message: What would you like to say?
+      submit: submit
+    request_contact:
+      no_email: You must include an message!
+      email_sent: We'll shortly be in touch!
   posts:
     filter:
       search: I'm looking for...
@@ -105,6 +111,9 @@ en:
     request_contact:
       no_message: You must include a message!
       email_sent: The Seller has been contacted!
+    contact:
+      title: Not Functional.. Had Routing Errors...
+      submit: Contact Seller
   profiles:
     form:  
       first_name: Add your First Name
@@ -125,6 +134,10 @@ en:
     rating: Rate the seller, enter a value between 0 and 5
     comment: Add comments about the seller
     submit: Add Review
+    edit:
+      title: Edit your review
+    new:
+      title: Go on... tell us
   shared:
     header:
       signin: Sign in
@@ -133,3 +146,4 @@ en:
       post: Publish Post
       myprofile: My Profile
       createprofile: Build Profile
+      contact: Contact us

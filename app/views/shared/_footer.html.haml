@@ -3,6 +3,7 @@
 		%nav
 			%ul
 				%li= link_to 'Home', root_path
+				%li= link_to t('shared.header.contact'), contact_path
 				- if user_signed_in?
 					- if current_user.profile==nil
 						%li= link_to t('shared.header.createprofile'), new_profile_path
