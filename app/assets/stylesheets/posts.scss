@@ -62,6 +62,21 @@ h2.container {
   text-align: center;
 }
 
+
+
+/* The image will fill the panel */
+.panel-heading.post_image {
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+  .image_show {
+      min-width: 100%;
+      min-height: 100%;
+  }
+}
+
+/* Setting a class for default image size*/
 .post-show {
   height: 300px;
   width: 300px;
@@ -71,7 +86,7 @@ h2.container {
 #post_show.row {
 	margin: 80px 0px;
 	padding: 0 30px;
-	height: 90vh;
+	height: 120vh;
 }
 
  /* Moves header below the nav bar */
@@ -94,9 +109,11 @@ h2.container {
       }
     }
 
-  
+    /* Designs the card */
     .card {
+       /* adds shadow the outline of the html object */
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+       /* allows us to change property values smoothly */
       transition: 0.3s;
       width: 100%;
       border-radius: 5px;
@@ -105,6 +122,7 @@ h2.container {
       background-color: #EBEBEB; 
       margin: 0 0 1em;
 
+      /* Removes effects from the A tag*/
       a:active,
       a:hover,
       a:visited,
@@ -112,6 +130,7 @@ h2.container {
         color: #333333;
       }
 
+      /* Adds efect to the section when user hovers over it  */
       a .post {
         width: 100%;
         display:block;
@@ -124,7 +143,7 @@ h2.container {
       
       .description {
         padding: 0px 10px;
-        /* unvisited link */
+        /* this will start a new line rather than all the text be in one line*/
         h4 {
           overflow-wrap: break-word;
         }
@@ -134,6 +153,8 @@ h2.container {
 
       }
 
+      /* When the user hovers over the card, the opacity turns 0.65.
+      showing that the user has highlighted the card*/
       &:hover{
         box-shadow: 0px 8px 16px 0 rgba(0,0,0,0.2);
         img {
@@ -142,14 +163,6 @@ h2.container {
       }
     }
 }
-
-/*
-*/
-.form-group#category {
-
-}
-
-
 
 
 /* DESIGN FOR SMALL DEVICES */

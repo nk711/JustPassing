@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
 	#runs the find_post method before the selected methods
-	before_action :find_post, :check, only: [:show, :edit, :update, :destroy]
+	before_action :find_post, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, only: [:edit, :destroy, :update, :new, :create, :request_contact]
-	before_action :must_make_account, only: [:edit, :destoy, :update, :new, :create, :request_contact]
+	before_action :must_make_account, only: [:new, :create, :request_contact]
+	before_action :check, only: [:edit, :update, :destroy,]
 	#Represents the index action
 	#This will list all the posts depending on the selected category/query
 	def index
@@ -60,7 +61,6 @@ class PostsController < ApplicationController
 		#@post = Post.new(post_params)
 		@post =current_user.posts.build(post_params)
 		@post.category = Category.find(post_params[:category_id].to_i)
-
 		if @post.save
 			#If the post saved succesfully then redirect to root path (index)
 			redirect_to root_path
@@ -115,7 +115,7 @@ class PostsController < ApplicationController
 			#Checks if profile is nil, ie hasnt been set up
 			if user_signed_in?
 				if current_user.profile==nil
-    		 		flash[:notice] = t('.alertnew')
+    		 		flash[:notice] = t('posts.edit.alertnew')
      		 		redirect_to post_path(@post)
       				return
       			end
@@ -123,11 +123,11 @@ class PostsController < ApplicationController
       		#Gets redirected back to the post show page
       	end
 
-      	#Checks to see if the current user is the creator of the post before the editing/creating/updating/deleting/ actions
+      	#Checks to see if the current user is the creator of the post before the editing/updating/deleting/ actions
       	def check
       		if user_signed_in?
 	      		unless current_user.id == @post.user_id
-	    		 flash[:notice] = t('.alertno')
+	    		 flash[:notice] = t('posts.edit.alertno')
 	     		 redirect_to post_path(@post)
 	      		 return
 	      		end

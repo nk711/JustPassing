@@ -1,0 +1,15 @@
+
+%h1
+	= t('.heading', name: @seller_user.profile.first_name+' '+@seller_user.profile.last_name)
+%p
+	= @message
+%dl	
+	%dt Post Title:
+	%dd= @post.title
+	%dt Email:
+	%dd= @user.email
+	%dt Telephone:
+	%dd= @user.profile.number
+
+%p= t('.ending')
+%p= @user.profile.first_name+' '+@user.profile.last_name

@@ -46,7 +46,12 @@ en:
         account: Already have an account? Log in now!
   contact_mailer:
     register_email:
+      subject: welcome to Just Passing
       heading: Welcome  
+      message: Thank you for registering with us at Just Passing!
+    contact_email:
+      heading: Hi %{name},
+      ending: Kind Regards,
   pages:
     contact:
       about_title: About this site

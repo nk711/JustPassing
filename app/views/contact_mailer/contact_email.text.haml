@@ -1,0 +1,8 @@
+= t('.heading', name: @seller_user.profile.first_name+' '+@seller_user.profile.last_name)
+= @message
+Email:
+@user.email
+Telephone:
+@user.profile.number
+t('.ending')
+@user.profile.first_name+' '+@user.profile.last_name

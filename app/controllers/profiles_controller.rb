@@ -8,7 +8,6 @@ class ProfilesController < ApplicationController
   def show
     @reviews = Review.where(profile_id: params[:id])
     @reviews = @reviews.order(created_at: :desc)
-
     @posts = Post.where(:user_id => @profile.user_id).descending
     #If the reviews is blank..
     if @reviews.blank?
@@ -38,6 +37,7 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+        ContactMailer.register_email(current_user).deliver_now
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
