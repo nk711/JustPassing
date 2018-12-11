@@ -140,6 +140,15 @@ en:
       title: Edit your review
     new:
       title: Go on... tell us
+    create:
+      success: You review has been posted
+      fail: An error has occured, check your fields and try again
+    update:
+      success: Your review has been updated successfully
+      fail: An error has occured while updating this review
+    destroy:
+      success: Review has been deleted successfully
+      fail: An error has occured whilst deleting this review
   shared:
     header:
       signin: Sign in

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	#runs the find_post method before the selected methods
 	before_action :find_post, only: [:show, :edit, :update, :destroy, :request_contact]
 	before_action :authenticate_user!, only: [:edit, :destroy, :update, :new, :create, :request_contact]
-	before_action :must_make_account, only: [:new, :create, :request_contact]
+	before_action :must_make_account, only: [:new, :create, :contact_seller]
 	before_action :check, only: [:edit, :update, :destroy,]
 	#Represents the index action
 	#This will list all the posts depending on the selected category/query
@@ -14,7 +14,6 @@ class PostsController < ApplicationController
 			posts = Post.where(:category_id => @category_id).descending
 			# Splits the array into further arrays which would represent rows, the rows will then 
 			# be displayed on the index page
-
 		end
 	end
 
@@ -126,7 +125,7 @@ class PostsController < ApplicationController
 			if user_signed_in?
 				if current_user.profile==nil
     		 		flash[:notice] = t('posts.edit.alertnew')
-     		 		redirect_to post_path(@post)
+     		 		redirect_to new_profile_path
       				return
       			end
       		end

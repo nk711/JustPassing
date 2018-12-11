@@ -11,16 +11,16 @@ class ContactMailer < ApplicationMailer
 	# i then proceeded to change the rooute to /post/id/request-contact, however this did not work
 	# in order to save time this feature will be removed
 	#
-	def contact_email(user_name, user_email, user_telephone, seller_email, post_title, message)
+	def contact_email(user_name, user_email, user_telephone, seller_user_email, post_title, message)
 		@user_name = user_name
 		@user_email = user_email
 		@user_telephone= user_telephone
-		@seller_email = seller_email
+		@seller_user_email = seller_user_email
 	    @post_title = post_title
 	    @message = message
 
 	    
-		mail cc: @seller_email
+		mail cc: @seller_user_email
 	end
 
 	#This method will take in the parameters and then send an email 

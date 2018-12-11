@@ -2,7 +2,6 @@ require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
-
   test "should get contact" do
     get :contact
     assert_response :success
