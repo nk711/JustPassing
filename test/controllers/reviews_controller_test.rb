@@ -29,6 +29,7 @@ class ReviewsControllerTest < ActionController::TestCase
 
   test "should get new" do
     get :new, profile_id: @profile.id
+    assert_select "h1" , I18n.t('reviews.new.title')
     assert_response :success
   end
 
@@ -43,6 +44,7 @@ class ReviewsControllerTest < ActionController::TestCase
   #Signed in User should be able to edit their a review
   test "should get edit" do
     get :edit, profile_id: @profile.id ,id: @review
+    assert_select "h1" , I18n.t('reviews.edit.title')
     assert_response :success
   end
    #Signed in User should be able to edit their a review

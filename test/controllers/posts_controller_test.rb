@@ -26,6 +26,8 @@ class PostsControllerTest < ActionController::TestCase
   #Get index posts form
   test "should get index" do
     get :index
+    assert_select "h3" , I18n.t('posts.index.myproject')
+    assert_select "p" , I18n.t('posts.index.myappdescription')
     assert_response :success
    end
 
@@ -33,6 +35,7 @@ class PostsControllerTest < ActionController::TestCase
   #Get new posts form
   test "should get new" do
     get :new
+    assert_select "h3" , I18n.t('posts.new.title')
     assert_response :success
   end
 
