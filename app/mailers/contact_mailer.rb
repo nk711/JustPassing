@@ -2,7 +2,7 @@ class ContactMailer < ApplicationMailer
 	#Takes in user parameters and sends email using method mail to the email address of user
 	def register_email(user)
 		@user = user
-		mail to: user.email, subject: t('.subject')
+		mail cc: @user.email
 	end
 
 	#Allows a user to contact another user about a post
@@ -11,13 +11,27 @@ class ContactMailer < ApplicationMailer
 	# i then proceeded to change the rooute to /post/id/request-contact, however this did not work
 	# in order to save time this feature will be removed
 	#
-	#def contact_email(seller_user, user, post, message)
-	#	@seller_user = seller_user
-	#	@user = user
-	#	@post = post
-	#	@message = message
-	#
-	#	mail cc: @seller_user
-	#end
+	def contact_email(user_name, user_email, user_telephone, seller_email, post_title, message)
+		@user_name = user_name
+		@user_email = user_email
+		@user_telephone= user_telephone
+		@seller_email = seller_email
+	    @post_title = post_title
+	    @message = message
 
+	    
+		mail cc: @seller_email
+	end
+
+	#This method will take in the parameters and then send an email 
+	#This method is linked to the contact_us_email view
+	def contact_us_email(email, name, telephone, msg)
+		#Sets instance variables so they can be accessed in the view
+		@email = email
+		@name = name
+		@telephone = telephone
+		@message = msg
+		#The email that we are going to send the email to
+		mail cc: @email
+	end
 end

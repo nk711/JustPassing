@@ -1,9 +1,10 @@
--# THIS FEATURE HAS BEEN REMOVED -allowing users to contact other users
-= t('.heading', name: @seller_user.profile.first_name+' '+@seller_user.profile.last_name)
-= @message
+Regarding + ' ' + @post_title
+=@message
+Post Title:
+=@post_title
 Email:
-@user.email
+=@user_email
 Telephone:
-@user.profile.number
-t('.ending')
-@user.profile.first_name+' '+@user.profile.last_name
+=@user_telephone
+=t('.ending')
+=@user_name

@@ -1,10 +1,13 @@
 -# Takes in the users messages
 -# Hidden parameters such as the user/post/seller object are also taken in
 -# They'll be used to generate an email which will be sent to the seller
-= simple_form_for :anything  do |f|
+= simple_form_for :mail, {url: contact_seller_path} do |f|
 	= f.input :message,label: false, placeholder: t('.title')
-	= f.input :user, :as => :hidden, :input_html => { :value => current_user}
-	= f.input :seller_user, :as => :hidden, :input_html => { :value => @seller}
-	= f.input :post, :as => :hidden, :input_html => { :value => @post }
-	= f.button :submit, t('.submit'), disabled: true, readonly: true
+	= f.input :user_name, :as => :hidden, :input_html => { :value => current_user.profile.first_name+current_user.profile.last_name}
+	= f.input :user_email, :as => :hidden, :input_html => { :value => current_user.email}
+	= f.input :user_telephone, :as => :hidden, :input_html => { :value => current_user.profile.number}
+	= f.input :seller_user_email, :as => :hidden, :input_html => { :value => @seller.email}
+	= f.input :post_title, :as => :hidden, :input_html => { :value => @post.title }
+	= f.button :submit, t('.submit')
+	-# disabled: true, readonly: true
 

@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
-
+  before_action :check, only: [:edit, :update, :destroy,]
 
   # GET /profiles/1
   # GET /profiles/1.json
@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if @profile.save
         ContactMailer.register_email(current_user).deliver_now
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+        format.html { redirect_to @profile, notice: t('.success') }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+        format.html { redirect_to @profile, notice: t('.success_update') }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ProfilesController < ApplicationController
   def destroy
     @profile.destroy
     respond_to do |format|
-      format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
+      format.html { redirect_to profiles_url, notice: ('.success_destroy') }
       format.json { head :no_content }
     end
   end
@@ -76,6 +76,20 @@ class ProfilesController < ApplicationController
     def set_profile
       @profile = Profile.find(params[:id])
     end
+
+
+    #Checks to see if the current user is the creator of the profile before the editing/updating/deleting/ actions
+    def check
+      if user_signed_in?
+        unless current_user.id == @profile.user_id
+          flash[:notice] = t('posts.edit.alertno')
+          redirect_to root_path
+         return
+        end
+      end
+      #Gets redirected back to the root path
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params

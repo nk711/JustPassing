@@ -40,8 +40,14 @@ class PostsController < ApplicationController
 
 	#Represents the Update aciton, only allows the creator to update their post
 	def update
-		@post.category_id = params[:category_id]
+		#If the update doesnt include the category then do not try to update the category
+		unless (post_params[:category_id]==nil)
+			#else update it if the category parameter is not null...
+			@post.category = Category.find(post_params[:category_id].to_i)
+		end
+		#Now update the post
 		if @post.update(post_params) 
+			#Redirect to the updated post (show)
 			redirect_to post_path(@post)
 		else
 			render :edit
@@ -73,25 +79,26 @@ class PostsController < ApplicationController
 	#This feature failed to work, to reduce time waste it'll be removed and a contact page
 	#will be added instead
 	#The request_contact action allows the user to send an email to the seller/post-creator
-	#def request_contact
-	#	mail_user = params[:user] #User object
-	#	mail_seller_user = params[:seller_user]#Seller user object
-	#	mail_post = params[:post] #currently viewed post object
-	#	mail_message = params[:message] #the message
-
+	def contact_seller
+		mail_user_name = params[:mail][:user_name] #User object
+		mail_user_email = params[:mail][:user_email] #User object
+		mail_user_telephone = params[:mail][:user_telephone] #User object
+		mail_seller_email = params[:mail][:seller_user_email]#Seller user object
+		mail_post_title = params[:mail][:post_title] #currently viewed post object
+		mail_message = params[:mail][:message] #the message
 		#If the messages are blank then dont sent the mail
 		# Else send the email!
-	#	if mail_message.blank?
-	#		flash[:alert] = I18n.t('posts.request_contact.no_message')
-	#	else
-	#		#sending email
-	#		ContactMailer.contact_email(mail_seller_user, mail_user, mail_post, mail_message).deliver_now
-	#		flash[:notice] = I18n.t('posts.request_contact.email_sent')
-	#	end
+		if mail_message.blank?
+			flash[:alert] = I18n.t('posts.request_contact.no_message')
+		else
+			#sending email
+			ContactMailer.contact_email(mail_user_name, mail_user_email, mail_user_telephone,mail_seller_email ,mail_post_title, mail_message).deliver_now
+			flash[:notice] = I18n.t('posts.request_contact.email_sent')
+		end
 
 		# Redirect to root path (ie home page)
-	#	redirect_to root_path
-	#end
+		redirect_to root_path
+	end
 
 
 

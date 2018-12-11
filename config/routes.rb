@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'contact', to:'pages#contact'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  post 'contact_seller', to: 'posts#contact_seller'
 
   post 'request_contact', to: 'pages#request_contact'
   # Post controller -> Index view as root

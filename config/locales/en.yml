@@ -50,7 +50,6 @@ en:
       heading: Welcome  
       message: Thank you for registering with us at Just Passing!
     contact_email:
-      heading: Hi %{name},
       ending: Kind Regards,
   pages:
     contact:
@@ -59,9 +58,9 @@ en:
       email: Enter your email
       telephone: Enter your mobile number
       message: What would you like to say?
-      submit: submit
+      submit: Contact us
     request_contact:
-      no_email: You must include an message!
+      no_email: You must provide an email!
       email_sent: We'll shortly be in touch!
   posts:
     filter:
@@ -130,6 +129,9 @@ en:
       title: Set up your profile
     edit:
       title: Edit profile
+    create:
+      success_create: You have successfully set up your profile!
+      success_update: The changes to your profile has been successful
   reviews:
     rating: Rate the seller, enter a value between 0 and 5
     comment: Add comments about the seller
