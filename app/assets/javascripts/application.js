@@ -19,18 +19,16 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function(e){
+    //Only changes the name of the selected tem in the drop down
     $('.search-panel .dropdown-menu').find('a').click(function(e) {
-		e.preventDefault();
-		var concept = $(this).text();
-		$('.search-panel span#search_concept').text(concept);
+		//prevents the page from refreshing when clicking an item
+        e.preventDefault(); 
+		$('.search-panel span#search_concept').text($(this).text());
 	});
 
-    $('#toggle').click(function() {
-    	$(this).toggleClass('clicked');
-  	});
 
+    //When the mouse goes off the navbar toggle button, it will not be highlighted
     $(".navbar-toggle").mouseup(function(){
     	$(this).blur();
 	})
-
 });

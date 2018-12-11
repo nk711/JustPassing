@@ -24,6 +24,8 @@ en:
   app_Description: Sell sell sell
   back: Back
   additional: Contact Information
+  model:
+    phonenumber: Enter a valid phone number
   devise:
     passwords:
       new:

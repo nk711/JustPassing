@@ -18,26 +18,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* Variables*/
 $warm-colour: #efefef;
 $shadow-effect: inset 0px 0px 50px rgba(0,0,0,0.55);
 $hover-colour: #d3d3d3;
-
 $font: sans serif;
-
 $white: #FFFFFF;
 /* Nav bar colours */
 $navbar-background: #323232;
-
-
 /*Toggle button background colour */
 $toggle-active-background: #3c3c3c;
-
 /* Globally setting font family to be sans serif */
 * {
 	font-family: $font !important;
 }
-
-
 /*Sets the background color*/
 body {
   background: $warm-colour;
@@ -51,6 +45,7 @@ body {
 }
 
 
+/* Setting some global attributes for the tag hr */
 hr {
   height: 1px;
   color: #d2d2d2;
@@ -59,15 +54,12 @@ hr {
   border: none;
 }
 
+/* Setting some global attributes for the tag a */
  a:hover, a:focus, a:active {
  	background: transparent;
     text-decoration: none;
     color: inherit;
  }
-
-
-
-
 
 /* DEVISE: LOGIN STYLING
 ========================================*/
@@ -205,6 +197,8 @@ Flash container msg
 
 }
 
+/* Editing the footer so that the text are in line
+ making sure the footer covers the whole width*/
 footer {
 	width: 100%;
 	background-color: $navbar-background;

@@ -20,13 +20,6 @@ class ReviewsControllerTest < ActionController::TestCase
     # resets the cache
     Rails.cache.clear
   end
-
-  test "should get index" do
-    get :index, profile_id: @profile.id
-    assert_response :success
-    assert_not_nil assigns(:reviews)
-  end
-
   test "should get new" do
     get :new, profile_id: @profile.id
     assert_select "h1" , I18n.t('reviews.new.title')

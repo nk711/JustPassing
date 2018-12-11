@@ -8,7 +8,7 @@ class CategoryTest < ActiveSupport::TestCase
 
 
    #Cannot create a category with empty name field
-  test 'should not save invalid user' do
+  test 'should not save invalid category' do
     category = Category.new
     category.save
     refute category.valid?

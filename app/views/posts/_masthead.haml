@@ -28,7 +28,11 @@
 										%input.form-control{:name => "x", :placeholder => "Search for something", :type => "text"}
 											%span.input-group-btn
 												%button.btn.btn-default{:type => "button"}
-													%span.glyphicon.glyphicon-search
+													Search
 					-#SUBHEADING
 					%br
 					%span.subheading Find something in time for christmas
+
+= simple_form_for :search, {url: posts_path} do |f|
+	= f.input :user_email, :as => :hidden, :input_html => { :value => current_user.email}
+	= f.input :user_telephone, :as => :hidden, :input_html => { :value => current_user.profile.number}

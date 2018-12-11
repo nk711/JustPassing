@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+/* Makes sure the footer stays at the bottom 
+   Makes sure the container is below the navbar when loaded*/
 #contact.row {
 	margin-top: 80px;
 	position: relative;

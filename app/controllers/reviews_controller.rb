@@ -7,10 +7,7 @@ class ReviewsController < ApplicationController
   before_action :same_account, :authenticate_user!, :must_make_account, only: [:new, :edit, :create, :update, :destroy, ]
   #Finds the currently viewed profile
   before_action :find_profile
-  #The index action which displays all the reviews onto a form
-  def index
-    @reviews = Review.all
-  end
+
   #The new action allows the user to create a new review
   def new
     @review = Review.new

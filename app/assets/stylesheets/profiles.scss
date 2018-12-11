@@ -3,21 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
- /* Moves header below the nav bar */
-
+ /* Provides room for the list of posts that belong to the user */
 .halfpage {
 	min-height:35vh;
 }
 
-
+/* Makes sure the footer stays at the bottom 
+   Makes sure the container is below the navbar when loaded
+   this is applied to the similar views*/
 #profile_show.row {
 	margin-top: 80px;
 	position: relative;
 	padding: 0 30px;
 	height: 45vh;
 }
-
-
 #profile_new.row {
 	margin: 80px 0px;
 	padding: 0 30px;
@@ -30,6 +29,7 @@
 	height: 70vh;
 }
 
+/* reducing the padding on this hr tag */
 hr.divider {
 	margin: 0em;
   	border-width: 2px;

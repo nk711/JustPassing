@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+/* Makes sure the footer stays at the bottom 
+   Makes sure the container is below the navbar when loaded
+   this is applied to the similar views*/
 #reviews_new.row {
 	margin-top: 80px;
 	padding: 0 30px;
