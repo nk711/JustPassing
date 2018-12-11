@@ -5,6 +5,7 @@
 				.panel-body
 					%h1= t('.title')
 					%hr
+						-#form allowing the user to contact the website
 						= simple_form_for :contact, {url: request_contact_path} do |f|
 							= f.input :name, label: false, placeholder: t('.name')
 							= f.input :email, label: false, placeholder: t('.email')

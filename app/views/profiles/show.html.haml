@@ -3,6 +3,7 @@
 		.col-md-8.col-md-offset-2
 			.panel.panel-default
 				.panel-body
+					-#Content body displaying user profiled details
 					- if user_signed_in? && @profile.user_id == current_user.id
 						%h1= t('.myprofile')
 					- else 
@@ -30,8 +31,9 @@
 							= link_to t('.addreview'), new_profile_review_path(@profile), class: "btn btn-default", id: 'review-btn'
 					%br
 					%br
+					-#Renders a list of reviews
 					=render 'review'
-
+					-#A footer displaying buttons
 				.panel-footer
 					.row
 						.col-md-12
@@ -43,11 +45,12 @@
 								.btn-group.pull-right
 									= link_to t('.back'), root_path, class: "btn btn-default"
 
-		-# Renders all the posts that the user has submitted
-
+-# Renders all the posts that the user has submitted
 .halfpage
 	= render 'shared/posts'
 
+-# Provies some java script so that stars will appear instead of a solid number
+-# Adds to user experience
 :javascript
 	$('.review-rating').raty({
 		path: '/assets',

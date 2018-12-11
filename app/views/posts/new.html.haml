@@ -2,9 +2,12 @@
 	#post_show.row
 		.col-md-8.col-md-offset-2
 			.panel.panel-default
+				-#Content
 				.panel-body
+					-#Renders form to create a new post
 					%h3= t('.title')
 					=render 'form'
+				-#Footer
 				.panel-footer
 					.row
 						.col-md-12

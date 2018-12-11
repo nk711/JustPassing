@@ -1,5 +1,5 @@
 -# Template email for when a user makes a profile
 %h1
-	= t('.heading') + ' ' + @user.email
+	= t('.heading') + ' ' + @email if @email
 
 %p= t('.message')

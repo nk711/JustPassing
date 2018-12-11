@@ -1,9 +1,11 @@
 -# masthead containing an image that covers the width of a page
 -# Has a title, subehading and a search bar taken from: 
 -# https://bootsnipp.com/snippets/featured/search-panel-with-filters
+-#Renders a container with an image and search bar + text
 = render 'masthead'
 
 .container
+	-#Displays the name of the selected category
 	%h2.category
 		%span.categories
 			- if (params[:category]==nil) 

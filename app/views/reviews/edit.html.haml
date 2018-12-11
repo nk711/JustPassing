@@ -3,11 +3,13 @@
 		.col-md-8.col-md-offset-2
 			.panel.panel-default
 				.panel-body
+					-#Content body. allows the user to edit a review
 					%h1= t('.title')
 					= simple_form_for([@profile, @review]) do |f|
 						= f.input :rating ,label: false, placeholder: t('reviews.rating')
 						= f.input :comment ,label: false, placeholder:  t('reviews.comment')
 						= f.button :submit, t('reviews.submit')
+					-#Footer which only displays buttons
 				.panel-footer
 					.row
 						.col-md-12

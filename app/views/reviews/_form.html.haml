@@ -1,3 +1,4 @@
+-# Allows a user to create a review for a particular profile
 = simple_form_for([@profile, @profile.reviews.build]) do |f|
 	= f.input :rating ,label: false, placeholder: t('reviews.rating')
 	= f.input :comment ,label: false, placeholder: t('reviews.comment')

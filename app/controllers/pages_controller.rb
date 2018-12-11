@@ -19,6 +19,7 @@ class PagesController < ApplicationController
       ContactMailer.contact_us_email(email, name, telephone, message).deliver_now
      	flash[:notice] =I18n.t('pages.request_contact.email_sent')
      end
+     #redirect to home page
      redirect_to root_path
   end
 

@@ -1,5 +1,5 @@
+-#Form which allows a user to create a post
 = simple_form_for @post, :html => { :multipart => true } do |f|
-
 	.form-group
 		= f.input :post_image, input_html: {class: 'form-control'}, label: false
 	= f.input :title,label: false, placeholder: t('.title')

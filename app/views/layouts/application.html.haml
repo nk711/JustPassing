@@ -17,15 +17,12 @@
 
   %body
 
-
+    -#Renders the header
     = render 'shared/header'
 
-
-    /alerts the user of a message from devise 
-    /%p.notice= notice
-    /%p.alert= alert
-
+    -#Content rendered depeneding on controller actions
     = yield
 
+    -#Renders the footer
     = render 'shared/footer'
 

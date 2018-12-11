@@ -3,8 +3,10 @@
 		.col-md-8.col-md-offset-2
 			.panel.panel-default
 				.panel-heading.post_image
+					-#Header which holds an image
 					= image_tag @post.post_image.url(:post_show), class: 'image_show'
 				.panel-body
+					-#Content body displaying the post details
 					%h1= @post.title
 					%p
 						= @post.category.name + ' | ' if @post.category 
@@ -19,6 +21,7 @@
 						- unless current_user.profile==nil
 							- if current_user.profile.persisted? &&  @post.user_id!=current_user.id
 								= render "contact"
+					-#Footer which adds functionality (buttons)
 				.panel-footer
 					.row
 						.col-md-12

@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 			@posts = Post.all.descending
 		else
 			@category_id = Category.find_by(name: params[:category]).id
-			posts = Post.where(:category_id => @category_id).descending
+			@posts = Post.where(:category_id => @category_id).descending
 			# Splits the array into further arrays which would represent rows, the rows will then 
 			# be displayed on the index page
 		end
@@ -29,10 +29,10 @@ class PostsController < ApplicationController
 	#Represents the destroy action, only allows the creator to destroy their post
 	def destroy
 		if @post.destroy
-			flash[:notice] = t('.success')
+			flash[:notice] = I18n.t('.success')
 			redirect_to root_path
 		else 
-			flash[:notice] = t('.fail')
+			flash[:notice] = I18n.t('.fail')
 			render :show
 		end
 	end
@@ -124,7 +124,7 @@ class PostsController < ApplicationController
 			#Checks if profile is nil, ie hasnt been set up
 			if user_signed_in?
 				if current_user.profile==nil
-    		 		flash[:notice] = t('posts.edit.alertnew')
+    		 		flash[:notice] = I18n.t('posts.edit.alertnew')
      		 		redirect_to new_profile_path
       				return
       			end
@@ -136,7 +136,7 @@ class PostsController < ApplicationController
       	def check
       		if user_signed_in?
 	      		unless current_user.id == @post.user_id
-	    		 flash[:notice] = t('posts.edit.alertno')
+	    		 flash[:notice] = I18n.t('posts.edit.alertno')
 	     		 redirect_to post_path(@post)
 	      		 return
 	      		end

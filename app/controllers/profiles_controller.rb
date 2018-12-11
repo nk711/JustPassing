@@ -1,10 +1,11 @@
 class ProfilesController < ApplicationController
+  #Sets the profile
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  #Only users that have signed in can have access to these actions
   before_action :authenticate_user!, only: [:new, :edit, :destroy, :update, :create]
+  #Prevents users from editing/destroying some one else's profile
   before_action :check, only: [:edit, :update, :destroy,]
-
-  # GET /profiles/1
-  # GET /profiles/1.json
+  #The show action which used to show a user's profile. It shows a list of reviews and posts
   def show
     @reviews = Review.where(profile_id: params[:id])
     @reviews = @reviews.order(created_at: :desc)
@@ -17,28 +18,23 @@ class ProfilesController < ApplicationController
       #else if the reviews section is not blank
       @avg = @reviews.average(:rating).round(2)
     end
-
   end
-
-  # building a profile for the current user
+  #The newaction is used allowing a user to create a profile
   def new
     @profile = current_user.build_profile
     @created = true
   end
-
-  # GET /profiles/1/edit
+  # The edit action is used allowing a user to edit a profile
   def edit
   end
-
-  # POST /profiles
-  # POST /profiles.json
+  # The create action is used to allow a profile to be populated and saved to the database
   def create
     @profile = current_user.build_profile(profile_params)
-
     respond_to do |format|
       if @profile.save
-        ContactMailer.register_email(current_user).deliver_now
-        format.html { redirect_to @profile, notice: t('.success') }
+        #Mails the user once they set up their profile
+        #ContactMailer.register_email(current_user.email.to_s).deliver_now
+        format.html { redirect_to @profile, notice: I18n.t('.success') }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -46,13 +42,11 @@ class ProfilesController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /profiles/1
-  # PATCH/PUT /profiles/1.json
+  # The update action allows the user to add chantes to their profile
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: t('.success_update') }
+        format.html { redirect_to @profile, notice: I18n.t('.success_update') }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
@@ -60,17 +54,15 @@ class ProfilesController < ApplicationController
       end
     end
   end
-
-  # DELETE /profiles/1
-  # DELETE /profiles/1.json
+  # The destroy action is used to destroy a user's profile
   def destroy
     @profile.destroy
     respond_to do |format|
-      format.html { redirect_to profiles_url, notice: ('.success_destroy') }
+      format.html { redirect_to profiles_url, notice: I18n.t('.success_destroy') }
       format.json { head :no_content }
     end
   end
-
+  #private methods used within this file
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
@@ -82,16 +74,14 @@ class ProfilesController < ApplicationController
     def check
       if user_signed_in?
         unless current_user.id == @profile.user_id
-          flash[:notice] = t('posts.edit.alertno')
+          flash[:notice] = I18n.t('posts.edit.alertno')
           redirect_to root_path
          return
         end
       end
       #Gets redirected back to the root path
     end
-
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Using strong parameter to only allow the following parameters
     def profile_params
         params.require(:profile).permit(
           :first_name,

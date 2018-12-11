@@ -80,7 +80,7 @@ class ReviewsController < ApplicationController
     #Checks if profile is nil, ie hasnt been set up
     if user_signed_in?
       if current_user.profile==nil
-          flash[:notice] = t('posts.edit.alertnew')
+          flash[:notice] = I18n.t('posts.edit.alertnew')
           redirect_to new_profile_path
           return
         end
@@ -93,7 +93,7 @@ class ReviewsController < ApplicationController
         @profile = find_profile
         if user_signed_in?
           if current_user.id == @profile.user_id
-           flash[:notice] = t('posts.edit.alertno')
+           flash[:notice] = I18n.t('posts.edit.alertno')
            redirect_to profile_path(@profile)
            return
          end

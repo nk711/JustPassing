@@ -83,12 +83,4 @@ class ProfilesControllerTest < ActionController::TestCase
     sign_out @user
   end
 
-    #test that if the user without a profile tries to go to /contact_seller he'll be jumped back to root path
-  test "User should not be able to update/new/edit/destroy/create without logging in" do
-     patch :update, id: @profile2, profile: {
-          number: '02084932792'
-     }
-    assert_redirected_to user_session_path
-  end
-
 end

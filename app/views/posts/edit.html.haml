@@ -2,11 +2,15 @@
 	#post_edit.row
 		.col-md-8.col-md-offset-2
 			.panel.panel-default
+				-#Holds the image
 				.panel-heading.post_image
 					= image_tag @post.post_image.url(:post_show), class: "image_show"
+				-#Content
 				.panel-body
+					-#Renders the edit post page
 					%h3= t('.title')
 					=render 'form'
+				-#footer
 				.panel-footer
 					.row
 						.col-md-12
