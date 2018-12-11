@@ -111,7 +111,7 @@ en:
       no_message: You must include a message!
       email_sent: The Seller has been contacted!
     contact:
-      title: Not Functional.. Had Routing Errors...
+      title: Enter a message
       submit: Contact Seller
   profiles:
     form:  

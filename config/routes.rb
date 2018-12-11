@@ -3,10 +3,23 @@ Rails.application.routes.draw do
   #Feature has been removed due to errors
   #post '/posts/:id/request_contact', to: 'posts#request_contact', as: 'request_contact'
   resources :profiles do
-     resources :reviews
+     resources :reviews, :except => [:show, :index] 
   end
   devise_for :users
   #get 'pages/index'
+
+  #Removing the following routes:
+  # profile_reviews GET    /profiles/:profile_id/reviews(.:format)          reviews#index
+  # Reason, profile reviews are displayed in /profiles/:profile_id
+  get '/profiles/:profile_id/reviews', to: redirect('/profiles/:profile_id')
+  # profile_review GET    /profiles/:profile_id/reviews/:id(.:format)      reviews#show
+  # Reason, not needed to display one particular view
+  get '/profiles/:profile_id/reviews/:id', to: redirect('/profiles/:profile_id')
+  # posts GET    /posts(.:format)                                           posts#index  
+  #Redirected to the home page where /posts actually is
+  get '/posts', to: redirect('/')
+  
+
 
   get 'contact', to:'pages#contact'
   # The priority is based upon order of creation: first created -> highest priority.
