@@ -9,7 +9,7 @@
 					%h1= t('app_title_space')
 					-#SEARCH FIELD
 					.container
-						.row 
+						.row
 							.col-xs-8.col-xs-offset-2
 								.input-group
 									.input-group-btn.search-panel
@@ -18,12 +18,12 @@
 											%span.caret
 										%ul.dropdown-menu{:role => "menu"}
 											- Category.all.each do |category|
-												%li{:class => "#{'selected' if params[:category] == category.name}"} 
+												%li{:class => "#{'selected' if params[:category] == category.name}"}
 													=link_to category.name, posts_path(category: category.name), class: 'link'
 											%li.divider
 											%li
 												%a{:href => "/"} All
-									-#SEARCH BUTTON	
+									-#SEARCH BUTTON
 									%input#search_param{:name => "search_param", :type => "hidden", :value => "all"}
 										%input.form-control{:name => "x", :placeholder => "Search for something", :type => "text"}
 											%span.input-group-btn
@@ -33,6 +33,6 @@
 					%br
 					%span.subheading Find something in time for christmas
 
-= simple_form_for :search, {url: posts_path} do |f|
-	= f.input :user_email, :as => :hidden, :input_html => { :value => current_user.email}
-	= f.input :user_telephone, :as => :hidden, :input_html => { :value => current_user.profile.number}
+-#= simple_form_for :search, {url: posts_path} do |f|
+-#	= f.input :user_email, :as => :hidden, :input_html => { :value => current_user.email}
+-#	= f.input :user_telephone, :as => :hidden, :input_html => { :value => current_user.profile.number}
